@@ -1,5 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function Header() {
   const navigate = useNavigate();
@@ -25,6 +27,12 @@ export default function Header() {
         style={{ cursor: "pointer", marginLeft: "5px" }}
       >
         Voice
+      </div>
+      <div
+        onClick={() => navigate("/voice")}
+        style={{ cursor: "pointer", marginLeft: "5px" }}
+      >
+        <FontAwesomeIcon icon={faMagnifyingGlass} />
       </div>
     </div>
   );
