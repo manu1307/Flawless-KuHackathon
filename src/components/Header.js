@@ -29,7 +29,7 @@ export default function Header() {
         Voice
       </div>
       <div
-        onClick={() => navigate("/voice")}
+        onClick={() => navigate("/search")}
         style={{ cursor: "pointer", marginLeft: "5px" }}
       >
         <FontAwesomeIcon icon={faMagnifyingGlass} />
