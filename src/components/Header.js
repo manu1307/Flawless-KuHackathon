@@ -20,6 +20,12 @@ export default function Header() {
       >
         Meme
       </div>
+      <div
+        onClick={() => navigate("/voice")}
+        style={{ cursor: "pointer", marginLeft: "5px" }}
+      >
+        Voice
+      </div>
     </div>
   );
 }

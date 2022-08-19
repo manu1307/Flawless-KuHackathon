@@ -1,5 +1,5 @@
 import React from "react";
 
 export default function New() {
-  return <div>New</div>;
+  return <div>신조어 페이지</div>;
 }
