@@ -1,7 +1,22 @@
 import "./App.css";
+import Footer from "./components/Footer";
+import Header from "./components/Header";
+import Router from "./Router";
 
 function App() {
-  return <h1 className="text-3xl font-bold underline">Hello world!</h1>;
+  return (
+    <>
+      <header>
+        <Header />
+      </header>
+      <main>
+        <Router />
+      </main>
+      <footer>
+        <Footer />
+      </footer>
+    </>
+  );
 }
 
 export default App;
