@@ -40,9 +40,10 @@ export default function MainPageLg() {
   `;
   const ImageCover = styled.div`
     overflow: hidden;
-    height: 250px;
-    width: 200px;
+    height: 1350px;
+    width: 135px;
   `;
+
   const [currentTemperature, setCurrentTemperature] = useState();
   const [weatherState, setWeatherState] = useState("Clear");
   const [currentDate, setCurrentDate] = useState("");
@@ -82,7 +83,7 @@ export default function MainPageLg() {
                 <div className="flex justify-between">
                   <ImageCover>
                     <img
-                      src="https://static.cdn.soomgo.com/upload/service/be5f3008-0899-41dc-87c4-fbf6c819f1be.png"
+                      src="../img/tennisGame.png"
                       alt="테니스 이미지"
                       className="w-full"
                     />
@@ -110,7 +111,12 @@ export default function MainPageLg() {
                     <Second>예약시간 15:00-17:00</Second>
                     <Second>동행인 수 3명</Second>
                     <div className="h-1/2 flex justify-end">
-                      <Button inputColor="#10dd3d">보러가기</Button>
+                      <Button
+                        inputColor="#10dd3d"
+                        style={{ position: "relative", top: "-20px" }}
+                      >
+                        보러가기
+                      </Button>
                     </div>
                   </div>
                 </div>
@@ -132,7 +138,12 @@ export default function MainPageLg() {
                 </Second>
                 <Logo width="40" height="40" />
                 <div className="flex justify-end">
-                  <Button inputColor="#FFFFFF">보러가기</Button>
+                  <Button
+                    inputColor="#FFFFFF"
+                    style={{ position: "relative", top: "-20px" }}
+                  >
+                    보러가기
+                  </Button>
                 </div>
               </div>
             </div>
@@ -154,7 +165,12 @@ export default function MainPageLg() {
                 </Second>
                 <Logo width="40" height="40" />
                 <div className="flex justify-end">
-                  <Button inputColor="#10dd3d">보러가기</Button>
+                  <Button
+                    inputColor="#10dd3d"
+                    style={{ position: "relative", top: "-15px" }}
+                  >
+                    보러가기
+                  </Button>
                 </div>
               </div>
               <div className="w-3/5 h-full mx-4 p-3 border-black border-2">
@@ -188,7 +204,20 @@ export default function MainPageLg() {
               className="w-full h-1/4 p-3"
               style={{ backgroundColor: "#10DD3D" }}
             >
-              <First>새 컨텐츠</First>
+              <div className="flex flex-col">
+                <div>
+                  <First>우리 지역 구장 찾기</First>
+                  <UnderLine className="w-3/6" />
+                </div>
+                <div className="flex justify-end">
+                  <Button
+                    inputColor="white"
+                    style={{ position: "relative", top: "15px" }}
+                  >
+                    보러가기
+                  </Button>
+                </div>
+              </div>
             </div>
           </div>
         </div>

@@ -75,7 +75,7 @@ export default function MainPageSm() {
                 최근 인기 테니스장
                 <Logo width="30" height="30" fill="black" />
               </First>
-              <UnderLine className="w-2/5" />
+              <UnderLine className="w-1/2" />
             </div>
             <div>
               <Second>8월동안 가장 조회수가 높았던</Second>
@@ -95,7 +95,7 @@ export default function MainPageSm() {
                 최근 인기 골프장
                 <GolfLogo width="30" height="30" fill="black" />
               </First>
-              <UnderLine className="w-1/3" />
+              <UnderLine className="w-1/2" />
             </div>
             <div>
               <Second>8월동안 가장 조회수가 높았던</Second>
@@ -112,21 +112,24 @@ export default function MainPageSm() {
             </div>
           </Box>
           <Box borderColor="#000" className="h-full p-3 my-2 ">
-            <div>
-              <First className="flex justify-between font-bold">
-                예약 정보
-              </First>
-              <UnderLine className="w-1/3" />
-            </div>
-            <div>
-              <div className="flex justify-between">
-                <Button
-                  inputColor="#10dd3d"
-                  borderInput="1px solid #000"
-                  className="text-black"
-                >
-                  보러 가기
-                </Button>
+            <div className="flex flex-col">
+              <div>
+                <First className="flex justify-between font-bold">
+                  예약 정보
+                </First>
+                <UnderLine className="w-1/3" />
+              </div>
+              <div>
+                <div className="flex justify-end">
+                  <Button
+                    inputColor="#10dd3d"
+                    borderInput="1px solid #000"
+                    className="text-black"
+                    style={{ position: "relative", top: "30px" }}
+                  >
+                    보러 가기
+                  </Button>
+                </div>
               </div>
             </div>
           </Box>
@@ -147,10 +150,23 @@ export default function MainPageSm() {
             style={{ backgroundColor: "#10dd3d" }}
           >
             <div>
-              <First className="flex justify-between font-bold">
-                새 컨텐츠
-              </First>
-              <UnderLine className="w-1/3" />
+              <div className="flex flex-col">
+                <div>
+                  <First className="flex justify-between font-bold">
+                    우리 지역 구장 찾기
+                  </First>
+                  <UnderLine className="w-3/5" />
+                </div>
+                <div className="flex justify-end">
+                  <Button
+                    inputColor="white"
+                    borderInput="1px solid black"
+                    style={{ position: "relative", top: "30px" }}
+                  >
+                    보러 가기
+                  </Button>
+                </div>
+              </div>
             </div>
           </Box>
         </div>
