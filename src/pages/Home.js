@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import styled from "styled-components";
 import SearchInputContainer from "../components/SearchInputContainer";
@@ -7,9 +7,15 @@ import Menu from "../components/Menu";
 import { useRecoilValue } from "recoil";
 import { menuIsOpenState } from "../atoms/atom-menu";
 import { useNavigate } from "react-router-dom";
+import MainPageLg from "../components/MainPage/MainPageLg";
+
 export default function Home() {
   const isOpen = useRecoilValue(menuIsOpenState);
   const navigate = useNavigate();
+  const [width, setWidth] = useState(window.screen.width);
+  window.addEventListener("resize", () => {
+    setWidth(window.screen.width);
+  });
   return (
     <div className="h-screen">
       <div className="h-screen">
@@ -27,23 +33,7 @@ export default function Home() {
             카테고리 3
           </CategoryBox>
         </CategoryContainer>
-        <div className="container mx-auto h-1/2">
-          <div className=" mx-auto px-4 h-full">
-            <div className="flex justify-center w-full h-full">
-              <div className="flex flex-col w-8/12 h-full mx-2 ">
-                <div className="flex h-1/2">
-                  <div className="w-3/5 h-full mx-2 bg-slate-400">d</div>
-                  <div className="w-2/5 h-full mx-2 bg-slate-400">a</div>
-                </div>
-                <div className="flex h-1/2">
-                  <div className="w-2/5 h-full mt-1 mx-2 bg-slate-400">f</div>
-                  <div className="w-3/5 h-full mt-1 mx-2 bg-slate-400">e</div>
-                </div>
-              </div>
-              <div className="w-3/12 mx-2 bg-green-300">d</div>
-            </div>
-          </div>
-        </div>
+        {width > 768 ? <MainPageLg /> : <div>작은화면</div>}
 
         {/* <Row>
         <InfoBanner />
