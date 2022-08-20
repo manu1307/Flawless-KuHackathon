@@ -6,8 +6,10 @@ import RecommendBanner from "../components/RecommendBanner";
 import Menu from "../components/Menu";
 import { useRecoilValue } from "recoil";
 import { menuIsOpenState } from "../atoms/atom-menu";
+import { useNavigate } from "react-router-dom";
 export default function Home() {
   const isOpen = useRecoilValue(menuIsOpenState);
+  const navigate = useNavigate();
   return (
     <div style={{ display: "flex" }}>
       <Container>
@@ -15,17 +17,15 @@ export default function Home() {
           <SearchInputContainer />
         </SearchContainer>
         <CategoryContainer>
-          {/* <Row>
-          <Col style={{ textAlign: "center" }}>
-            <div style={{ border: "1px solid black",  }}>테니스</div>
-          </Col>
-          <Col style={{ textAlign: "center" }}>
-            <div style={{ border: "1px solid black",  }}>골프</div>
-          </Col>
-        </Row> */}
-          <CategoryBox>카테고리 1</CategoryBox>
-          <CategoryBox>카테고리 2</CategoryBox>
-          <CategoryBox>카테고리 3</CategoryBox>
+          <CategoryBox onClick={() => navigate("/sport")}>
+            카테고리 1
+          </CategoryBox>
+          <CategoryBox onClick={() => navigate("/sport")}>
+            카테고리 2
+          </CategoryBox>
+          <CategoryBox onClick={() => navigate("/sport")}>
+            카테고리 3
+          </CategoryBox>
         </CategoryContainer>
         <BannerContainer>
           <Row>
