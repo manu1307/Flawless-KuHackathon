@@ -1,32 +1,18 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import styled from "styled-components";
-import SearchInputContainer from "../components/SearchInputContainer";
 import RecommendBanner from "../components/RecommendBanner";
-import Menu from "../components/Menu";
 import { useRecoilValue } from "recoil";
 import { menuIsOpenState } from "../atoms/atom-menu";
 import { useNavigate } from "react-router-dom";
+import TopPart_NoDetail from "../components/TopPart_NoDetail";
 export default function Home() {
   const isOpen = useRecoilValue(menuIsOpenState);
   const navigate = useNavigate();
   return (
     <div style={{ display: "flex" }}>
       <Container>
-        <SearchContainer>
-          <SearchInputContainer />
-        </SearchContainer>
-        <CategoryContainer>
-          <CategoryBox onClick={() => navigate("/sport")}>
-            카테고리 1
-          </CategoryBox>
-          <CategoryBox onClick={() => navigate("/sport")}>
-            카테고리 2
-          </CategoryBox>
-          <CategoryBox onClick={() => navigate("/sport")}>
-            카테고리 3
-          </CategoryBox>
-        </CategoryContainer>
+        <TopPart_NoDetail />
         <BannerContainer>
           <Row>
             <RecommendBanner />
@@ -44,7 +30,6 @@ export default function Home() {
         <InfoBanner />
       </Row> */}
       </Container>
-      {isOpen && <Menu />}
     </div>
   );
 }

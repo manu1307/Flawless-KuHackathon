@@ -2,6 +2,8 @@ import React from "react";
 import { Row, Form, Col } from "react-bootstrap";
 import styled from "styled-components";
 import CircleContainer from "./CircleContainer";
+import FormRegion from "./FormRegion";
+import FormSelect from "./FormSelect";
 import SearchInputContainer from "./SearchInputContainer";
 
 export default function TopPart() {
@@ -18,65 +20,39 @@ export default function TopPart() {
               <SearchInputContainer />
             </SearchContainer>
             <DetailCategoryContainer>
-              <Form.Select
-                aria-label="type"
-                style={{
-                  border: "1px solid #10DD3D",
-                  borderRadius: 0,
-                  margin: "5px",
-                  color: "#10DD3D",
+              <FormSelect
+                data={{
+                  label: "type",
+                  labelKor: "테니스 구장 종류",
+                  option: ["하드", "잔디", "클레이"],
                   width: "30%",
                 }}
-              >
-                <option>테니스 구장 종류</option>
-                <option value="1">하드</option>
-                <option value="2">잔디</option>
-                <option value="3">클레이</option>
-              </Form.Select>
-              <Form.Select
-                aria-label="position"
-                style={{
-                  border: "1px solid #10DD3D",
-                  borderRadius: 0,
-                  margin: "5px",
-                  color: "#10DD3D",
+              />
+              <FormSelect
+                data={{
+                  label: "position",
+                  labelKor: "장소",
+                  option: ["실내", "실외"],
                   width: "20%",
                 }}
-              >
-                <option>장소</option>
-                <option value="1">실내</option>
-                <option value="2">실외</option>
-              </Form.Select>
-              <Form.Select
-                aria-label="money"
-                style={{
-                  border: "1px solid #10DD3D",
-                  borderRadius: 0,
-                  margin: "5px",
-                  color: "#10DD3D",
+              />
+              <FormSelect
+                data={{
+                  label: "money",
+                  labelKor: "금액 분포",
+                  option: ["3만원 미만", "3~5만원", "5만원 이상"],
                   width: "30%",
                 }}
-              >
-                <option>금액 분포</option>
-                <option value="1">3만원 미만</option>
-                <option value="2">3~5만원</option>
-                <option value="2">5만원 이상</option>
-              </Form.Select>
-              <Form.Select
-                aria-label="region"
-                style={{
-                  border: "1px solid #10DD3D",
-                  borderRadius: 0,
-                  margin: "5px",
-                  color: "#10DD3D",
+              />
+              <FormSelect
+                data={{
+                  label: "region",
+                  labelKor: "지역",
+                  option: ["서울", "경기", "그 외"],
                   width: "20%",
                 }}
-              >
-                <option>지역</option>
-                <option value="1">서울</option>
-                <option value="2">경기</option>
-                <option value="2">그 외</option>
-              </Form.Select>
+              />
+              {/* <FormRegion /> */}
             </DetailCategoryContainer>
           </LeftContainer>
         </Col>

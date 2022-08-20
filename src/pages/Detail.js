@@ -6,7 +6,6 @@ import TopPart_NoDetail from "../components/TopPart_NoDetail";
 
 export default function Detail() {
   const { id } = useParams();
-  console.log(id);
   const navigate = useNavigate();
   const [tab, setTab] = useState("info");
   return (

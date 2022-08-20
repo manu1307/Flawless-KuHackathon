@@ -1,6 +1,6 @@
 import React from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
-import Sport from "./pages/\bSport";
+import Sport from "./pages/Sport";
 import Apply from "./pages/Apply";
 import Detail from "./pages/Detail";
 import Home from "./pages/Home";
