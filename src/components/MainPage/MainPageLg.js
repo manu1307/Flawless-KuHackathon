@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCloud } from "@fortawesome/free-solid-svg-icons";
 import { Link, Navigate, useNavigate } from "react-router-dom";
+import { faSun } from "@fortawesome/free-regular-svg-icons";
 
 // Thunderstorm	Drizzle Rain Snow Clear Clouds
 export default function MainPageLg() {
