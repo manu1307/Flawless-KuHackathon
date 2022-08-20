@@ -248,7 +248,7 @@ export default function MainPageLg() {
               <First style={{ whiteSpace: "pre", marginTop: "35px" }}>
                 {weatherState === "Clear"
                   ? "야외 운동하기 좋은 날씨입니다.\n더위에 조심하세요!"
-                  : "기상 상태가 좋지 않아요. 실내에서 운동해보는 건 어때요?"}
+                  : "기상 상태가 좋지 않아요.\n실내에서 운동해보는 건 어때요?"}
               </First>
             </div>
             <div
