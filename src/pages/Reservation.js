@@ -26,19 +26,28 @@ export default function Reservation() {
         <RightContainer>
           <Tabs>
             <Tab onClick={() => setTab("info")} selected={tab === "info"}>
-              정보
+              테니스장 정보
             </Tab>
             <Tab onClick={() => setTab("review")} selected={tab === "review"}>
               리뷰
             </Tab>
           </Tabs>
           <InfoContainer>
-            <Title>어떤 테니스장</Title>
-            <DetailInfoBox />
+            <div>
+              <Title>어떤 테니스장</Title>
+              <DetailInfoBox
+                data={[
+                  { label: "테니스장 종류", value: "잔디" },
+                  { label: "장소", value: "실외" },
+                  { label: "금액", value: "시간당 30,000원" },
+                  { label: "특이사항", value: "정비로 인해 사용불가" },
+                ]}
+              />
+            </div>
+            <div style={{ display: "flex", alignItems: "flex-end" }}>
+              <Btn onClick={() => navigate(`/apply/1`)}>예약하기</Btn>
+            </div>
           </InfoContainer>
-          {/* <div style={{ position: "absolute" }}> */}
-          <Btn onClick={() => navigate(`/apply/1`)}>예약하기</Btn>
-          {/* </div> */}
         </RightContainer>
       </Container>
     </>
@@ -49,8 +58,9 @@ const LeftImg = styled.div`
 `;
 const RightContainer = styled.div`
   width: 60%;
-  position: relative;
-  padding-left: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 `;
 const Btn = styled.div`
   padding: 20px 45px;
@@ -61,28 +71,31 @@ const Btn = styled.div`
   color: white;
   cursor: pointer;
   font-size: 24px;
-  position: absolute;
-  bottom: 50px;
-  right: 50px;
 `;
 const Tabs = styled.div`
   display: flex;
   justify-content: flex-end;
 `;
 const Tab = styled.div`
-  padding: 5px 30px;
+  padding: 5px 45px;
   color: ${(props) => (props.selected ? "white" : "black")};
   background-color: ${(props) => (props.selected ? "black" : "white")};
   border-left: 1px solid black;
   border-bottom: 1px solid black;
   cursor: pointer;
+  font-weight: 700;
+  font-size: 24px;
 `;
 const InfoContainer = styled.div`
-  margin-top: 32px;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 40px;
+  padding-bottom: 30px;
 `;
 const Title = styled.div`
   width: max-content;
-  font-size: 32px;
+  font-size: 40px;
+  font-weight: 700;
   border-bottom: 2px solid black;
   font-weight: bolder;
   margin-bottom: 30px;
