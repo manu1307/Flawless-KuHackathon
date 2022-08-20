@@ -11,74 +11,74 @@ export default function Reservation() {
   const navigate = useNavigate();
   const [tab, setTab] = useState("info");
   const width = window.screen.width;
-  return (
+  return width > 500 ? (
     <>
-      <Container>{width < 500 ? null : <TopPart_NoDetail />}</Container>
-      {width < 500 ? (
-        <>
-          <InfoTabSmall
-            data={[
-              { label: "테니스장 종류", value: "잔디" },
-              { label: "장소", value: "실외" },
-              { label: "금액", value: "시간당 30,000원" },
-              { label: "특이사항", value: "정비로 인해 사용불가" },
-            ]}
+      <Container>
+        <TopPart_NoDetail />
+      </Container>
+      <Container
+        style={{ display: "flex", border: "2px solid black", padding: 0 }}
+      >
+        <LeftImg>
+          <img
+            src="https://cdn.011st.com/11dims/resize/600x600/quality/75/11src/product/1590136745/B.jpg?180000000"
+            style={{ width: "100%" }}
           />
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              paddingTop: "30px",
-            }}
-          >
-            <BtnMobile onClick={() => navigate("/apply/1")}>예약하기</BtnMobile>
-          </div>
-        </>
-      ) : (
-        <Container
-          style={{ display: "flex", border: "2px solid black", padding: 0 }}
-        >
-          <LeftImg>
-            <img
-              src="https://cdn.011st.com/11dims/resize/600x600/quality/75/11src/product/1590136745/B.jpg?180000000"
-              style={{ width: "100%" }}
-            />
-          </LeftImg>
-          <RightContainer>
-            <Tabs>
-              <Tab onClick={() => setTab("info")} selected={tab === "info"}>
-                테니스장 정보
-              </Tab>
-              <Tab onClick={() => setTab("review")} selected={tab === "review"}>
-                리뷰
-              </Tab>
-            </Tabs>
-            <InfoContainer>
-              <div>
-                <Title>어떤 테니스장</Title>
-                <DetailInfoBox
-                  data={[
-                    { label: "테니스장 종류", value: "잔디" },
-                    { label: "장소", value: "실외" },
-                    { label: "금액", value: "시간당 30,000원" },
-                    { label: "특이사항", value: "정비로 인해 사용불가" },
-                  ]}
-                />
-              </div>
-              <div style={{ display: "flex", alignItems: "flex-end" }}>
-                <Btn
-                  onClick={() => {
-                    window.scroll(0, 0);
-                    navigate(`/apply/1`);
-                  }}
-                >
-                  예약하기
-                </Btn>
-              </div>
-            </InfoContainer>
-          </RightContainer>
-        </Container>
-      )}
+        </LeftImg>
+        <RightContainer>
+          <Tabs>
+            <Tab onClick={() => setTab("info")} selected={tab === "info"}>
+              테니스장 정보
+            </Tab>
+            <Tab onClick={() => setTab("review")} selected={tab === "review"}>
+              리뷰
+            </Tab>
+          </Tabs>
+          <InfoContainer>
+            <div>
+              <Title>어떤 테니스장</Title>
+              <DetailInfoBox
+                data={[
+                  { label: "테니스장 종류", value: "잔디" },
+                  { label: "장소", value: "실외" },
+                  { label: "금액", value: "시간당 30,000원" },
+                  { label: "특이사항", value: "정비로 인해 사용불가" },
+                ]}
+              />
+            </div>
+            <div style={{ display: "flex", alignItems: "flex-end" }}>
+              <Btn
+                onClick={() => {
+                  window.scroll(0, 0);
+                  navigate(`/apply/1`);
+                }}
+              >
+                예약하기
+              </Btn>
+            </div>
+          </InfoContainer>
+        </RightContainer>
+      </Container>
+    </>
+  ) : (
+    <>
+      <InfoTabSmall
+        data={[
+          { label: "테니스장 종류", value: "잔디" },
+          { label: "장소", value: "실외" },
+          { label: "금액", value: "시간당 30,000원" },
+          { label: "특이사항", value: "정비로 인해 사용불가" },
+        ]}
+      />
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          paddingTop: "30px",
+        }}
+      >
+        <BtnMobile onClick={() => navigate("/apply/1")}>예약하기</BtnMobile>
+      </div>
     </>
   );
 }

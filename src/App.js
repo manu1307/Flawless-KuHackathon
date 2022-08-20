@@ -1,4 +1,3 @@
-import "./App.css";
 import Router from "./Router";
 import Header from "../src/components/Layout/Header";
 import Footer from "../src/components/Layout/Footer";
