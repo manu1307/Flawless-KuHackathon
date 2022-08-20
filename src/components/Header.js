@@ -3,19 +3,23 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import Offcanvas from "react-bootstrap/Offcanvas";
+import { ReactComponent as Logo } from "../assets/Logo.svg";
 
 export default function Header() {
   return (
     <>
       {[false].map((expand) => (
         <Navbar key={expand} expand={expand} bg="dark" variant="dark">
-          <Container fluid className="py-1">
-            <div className="w-screen flex justify-between">
+          <Container fluid className="pt-24">
+            <div className="w-screen flex justify-between py-3">
               <Navbar.Brand
                 href="/"
-                className="text-center w-4 text-white lg:w-full"
+                className="text-center w-1 text-white lg:w-full"
               >
-                어디구장
+                <div className="flex">
+                  <Logo width={30} height={30} fill="white" className="mx-2" />
+                  어디구장
+                </div>
               </Navbar.Brand>
               <Navbar.Toggle
                 style={{ color: "white" }}
