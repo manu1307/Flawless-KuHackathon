@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import styled from "styled-components";
 import SearchInputContainer from "../components/SearchInputContainer";
@@ -7,12 +7,18 @@ import Menu from "../components/Menu";
 import { useRecoilValue } from "recoil";
 import { menuIsOpenState } from "../atoms/atom-menu";
 import { useNavigate } from "react-router-dom";
+import MainPageLg from "../components/MainPage/MainPageLg";
+
 export default function Home() {
   const isOpen = useRecoilValue(menuIsOpenState);
   const navigate = useNavigate();
+  const [width, setWidth] = useState(window.screen.width);
+  window.addEventListener("resize", () => {
+    setWidth(window.screen.width);
+  });
   return (
-    <div style={{ display: "flex" }}>
-      <Container>
+    <div className="h-screen">
+      <div className="h-screen">
         <SearchContainer>
           <SearchInputContainer />
         </SearchContainer>
@@ -27,14 +33,8 @@ export default function Home() {
             카테고리 3
           </CategoryBox>
         </CategoryContainer>
-        <BannerContainer>
-          <Row>
-            <RecommendBanner />
-            <RecommendBanner />
-            <RecommendBanner />
-            <RecommendBanner />
-          </Row>
-        </BannerContainer>
+        {width > 768 ? <MainPageLg /> : <div>작은화면</div>}
+
         {/* <Row>
         <InfoBanner />
         <InfoBanner />
@@ -43,8 +43,7 @@ export default function Home() {
         <InfoBanner />
         <InfoBanner />
       </Row> */}
-      </Container>
-      {isOpen && <Menu />}
+      </div>
     </div>
   );
 }
