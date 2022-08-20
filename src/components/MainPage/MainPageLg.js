@@ -140,7 +140,7 @@ export default function MainPageLg() {
                 <div className="flex justify-end">
                   <Button
                     inputColor="#FFFFFF"
-                    style={{ position: "relative", top: "-18px" }}
+                    style={{ position: "relative", top: "0px" }}
                   >
                     보러가기
                   </Button>
