@@ -1,7 +1,10 @@
 import styled from "styled-components";
 import { ReactComponent as Logo } from "../../assets/Logo.svg";
 import { useEffect, useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCloud } from "@fortawesome/free-solid-svg-icons";
 
+// Thunderstorm	Drizzle Rain Snow Clear Clouds
 export default function MainPageLg() {
   const First = styled.p`
     font-family: Noto Sans CJK KR;
@@ -41,6 +44,7 @@ export default function MainPageLg() {
     width: 200px;
   `;
   const [currentTemperature, setCurrentTemperature] = useState();
+  const [weatherState, setWeatherState] = useState("Clear");
   const [currentDate, setCurrentDate] = useState("");
   useEffect(() => {
     const fetchWeatherData = async () => {
@@ -48,6 +52,9 @@ export default function MainPageLg() {
         `https://api.openweathermap.org/data/2.5/weather?lat=37&lon=126&appid=f8fe1ee09dc50ad5f963f1bee96f6832`
       );
       const weatherData = await response.json();
+      console.log(weatherData);
+      const { main } = weatherData.weather[0];
+      setWeatherState(main);
       setCurrentTemperature(() => {
         return (weatherData.main.temp - 273).toFixed(1);
       });
@@ -151,7 +158,15 @@ export default function MainPageLg() {
                 </div>
               </div>
               <div className="w-3/5 h-full mx-4 p-3 border-black border-2">
-                <First></First>
+                <iframe
+                  width="100%"
+                  height="100%"
+                  src="https://www.youtube.com/embed/RyjooxZ8vA8"
+                  title="YouTube video player"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen
+                ></iframe>
               </div>
             </div>
           </div>
@@ -164,9 +179,10 @@ export default function MainPageLg() {
                 <First>날씨</First>
                 <UnderLine className="w-1/6" />
               </div>
-
               <Second>{currentDate}</Second>
               <Second>기온 : {currentTemperature}℃</Second>
+              <div>{weatherState}</div>
+              <FontAwesomeIcon icon={faCloud} size="8x" />
             </div>
             <div
               className="w-full h-1/4 p-3"
