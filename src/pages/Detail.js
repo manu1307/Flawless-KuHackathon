@@ -1,12 +1,13 @@
 import React from "react";
 import { Container } from "react-bootstrap";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import styled from "styled-components";
 import TopPart from "../components/TopPart";
 
 export default function Detail() {
   const { id } = useParams();
   console.log(id);
+  const navigate = useNavigate();
   return (
     <>
       <TopPart />
@@ -24,7 +25,9 @@ export default function Detail() {
             예약제 스포츠를 하면서 두드러지는 특징들같은걸 찾으면 그냥
             예약서비스에서 좀더 차별점을 둘 수 있을거같음!! - 내생각..
           </p>
-          <Btn>예약하기</Btn>
+          <div style={{ display: "flex", justifyContent: "flex-end" }}>
+            <Btn onClick={() => navigate(`/apply/1`)}>예약하기</Btn>
+          </div>
         </RightContainer>
       </Container>
     </>
@@ -43,7 +46,5 @@ const Btn = styled.div`
   align-items: center;
   background-color: tomato;
   color: white;
-  position: absolute;
-  right: 0;
-  bottom: 0;
+  cursor: pointer;
 `;
