@@ -6,7 +6,7 @@ import Router from "./Router";
 function App() {
   return (
     <>
-      <header>
+      <header style={{ marginBottom: "50px" }}>
         <Header />
       </header>
       <main>
