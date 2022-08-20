@@ -3,46 +3,11 @@ import { ReactComponent as Logo } from "../../assets/Logo.svg";
 import { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCloud } from "@fortawesome/free-solid-svg-icons";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 
 // Thunderstorm	Drizzle Rain Snow Clear Clouds
 export default function MainPageLg() {
-  const First = styled.p`
-    font-family: Noto Sans CJK KR;
-    font-size: 20px;
-    font-weight: 700;
-    line-height: 20px;
-    letter-spacing: 0em;
-    text-align: left;
-    margin: 0;
-  `;
-  const Second = styled.p`
-    font-family: "Noto Sans CJK KR";
-    font-style: normal;
-    font-weight: 600;
-    font-size: 14px;
-    line-height: 10px;
-  `;
-  const Button = styled.button`
-    box-sizing: border-box;
-    width: 75px;
-    height: 25px;
-    font-size: 13px;
-    font-weight: 600;
-    font-family: "Noto Sans CJK KR";
-    background: ${(props) => props.inputColor};
-    border: 1.8px solid #000000;
-  `;
-  const UnderLine = styled.div`
-    height: 3px;
-    background: black;
-    margin-top: 5px;
-    margin-bottom: 15px;
-  `;
-  const ImageCover = styled.div`
-    overflow: hidden;
-    height: 135px;
-    width: 135px;
-  `;
+  const navigate = useNavigate();
 
   const [currentTemperature, setCurrentTemperature] = useState();
   const [weatherState, setWeatherState] = useState("Clear");
@@ -114,6 +79,9 @@ export default function MainPageLg() {
                       <Button
                         inputColor="#10dd3d"
                         style={{ position: "relative", top: "-20px" }}
+                        onClick={() => {
+                          navigate("/ApplyInfo");
+                        }}
                       >
                         보러가기
                       </Button>
@@ -138,12 +106,14 @@ export default function MainPageLg() {
                 </Second>
                 <Logo width="40" height="40" />
                 <div className="flex justify-end">
-                  <Button
-                    inputColor="#FFFFFF"
-                    style={{ position: "relative", top: "0px" }}
-                  >
-                    보러가기
-                  </Button>
+                  <Link to="/applyinfo">
+                    <Button
+                      inputColor="#FFFFFF"
+                      style={{ position: "relative", top: "-18px" }}
+                    >
+                      보러가기
+                    </Button>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -225,3 +195,41 @@ export default function MainPageLg() {
     </div>
   );
 }
+
+const First = styled.p`
+  font-family: Noto Sans CJK KR;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 20px;
+  letter-spacing: 0em;
+  text-align: left;
+  margin: 0;
+`;
+const Second = styled.p`
+  font-family: "Noto Sans CJK KR";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 10px;
+`;
+const Button = styled.button`
+  box-sizing: border-box;
+  width: 75px;
+  height: 25px;
+  font-size: 13px;
+  font-weight: 600;
+  font-family: "Noto Sans CJK KR";
+  background: ${(props) => props.inputColor};
+  border: 1.8px solid #000000;
+`;
+const UnderLine = styled.div`
+  height: 3px;
+  background: black;
+  margin-top: 5px;
+  margin-bottom: 15px;
+`;
+const ImageCover = styled.div`
+  overflow: hidden;
+  height: 135px;
+  width: 135px;
+`;

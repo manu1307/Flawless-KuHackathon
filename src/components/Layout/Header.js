@@ -82,7 +82,7 @@ export default function Header() {
 
                     <Nav.Link
                       className="text-center opacity-70 hover:opacity-100"
-                      href="/"
+                      href="/ApplyInfo"
                     >
                       <span className="px-3 py-1 text-center opacity-70 hover:opacity-100 hover:border-b border-black">
                         예약 정보
