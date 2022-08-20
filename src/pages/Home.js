@@ -19,9 +19,9 @@ export default function Home() {
             <div style={{ border: "1px solid black",  }}>골프</div>
           </Col>
         </Row> */}
-        <CategoryBox>박스 1</CategoryBox>
-        <CategoryBox>박스 2</CategoryBox>
-        <CategoryBox>박스 3</CategoryBox>
+        <CategoryBox>카테고리 1</CategoryBox>
+        <CategoryBox>카테고리 2</CategoryBox>
+        <CategoryBox>카테고리 3</CategoryBox>
       </CategoryContainer>
       <BannerContainer>
         <Row>

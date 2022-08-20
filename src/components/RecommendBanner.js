@@ -33,9 +33,10 @@ export default function RecommendBanner() {
             bottom: 0,
             right: 0,
             backgroundColor: "gray",
+            padding: "5px",
           }}
         >
-          더보기...
+          +show more...
         </h6>
       </div>
     </Col>

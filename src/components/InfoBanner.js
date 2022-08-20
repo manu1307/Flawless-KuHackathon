@@ -1,9 +1,11 @@
 import React from "react";
 import { Col } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 
 export default function InfoBanner() {
+  const navigate = useNavigate();
   return (
-    <Col lg={4} md={6}>
+    <Col lg={4} md={6} onClick={() => navigate(`/reservation/1`)}>
       <div
         style={{
           border: "1px solid black",
