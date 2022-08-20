@@ -1,38 +1,49 @@
 import React from "react";
-import { Col } from "react-bootstrap";
+import { Col, Container } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
+import styled from "styled-components";
 
 export default function InfoBanner() {
   const navigate = useNavigate();
   return (
     <Col lg={4} md={6} onClick={() => navigate(`/reservation/1`)}>
-      <div
-        style={{
-          border: "1px solid black",
-          marginBottom: "10px",
-          width: "100%",
-          position: "relative",
-        }}
+      <Container
+        fluid
+        style={{ border: "1px solid black", padding: 0, marginBottom: "24px" }}
       >
-        <img
-          src="https://t1.daumcdn.net/cfile/tistory/271C6C3358C24F7810"
-          style={{ filter: "brightness(83%)", width: "100%" }}
-        />
-        <div
-          style={{
-            position: "absolute",
-            bottom: 0,
-            left: 0,
-            width: "100%",
-            backgroundColor: "gray",
-            display: "flex",
-            justifyContent: "space-between",
-          }}
-        >
-          <span>이름</span>
-          <span>정보</span>
-        </div>
-      </div>
+        <TopImage>
+          <img
+            src="https://life.gangnam.go.kr/design/homepage/gangnamgu_pc/image/sisul_06.jpg"
+            style={{ width: "100%" }}
+          />
+        </TopImage>
+        <BottomDescription>
+          <LeftInfo>
+            <Title>어쩌구 테니스장</Title>
+            <SmallInfo>시간 정보</SmallInfo>
+            <SmallInfo>가격 정보</SmallInfo>
+          </LeftInfo>
+          <RightInfo>⭐️⭐️⭐️⭐️ /5</RightInfo>
+        </BottomDescription>
+      </Container>
     </Col>
   );
 }
+const TopImage = styled.div``;
+const BottomDescription = styled.div`
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+`;
+const LeftInfo = styled.div``;
+const RightInfo = styled.div`
+  font-size: 14px;
+`;
+const Title = styled.div`
+  font-size: 20px;
+  font-weight: 700;
+`;
+const SmallInfo = styled.div`
+  font-weight: 700;
+  font-size: 12px;
+`;
