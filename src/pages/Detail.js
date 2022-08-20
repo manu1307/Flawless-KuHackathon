@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Container } from "react-bootstrap";
 import { useNavigate, useParams } from "react-router-dom";
 import styled from "styled-components";
@@ -8,43 +8,107 @@ export default function Detail() {
   const { id } = useParams();
   console.log(id);
   const navigate = useNavigate();
+  const [tab, setTab] = useState("info");
   return (
     <>
       <TopPart />
-      <Container style={{ display: "flex" }}>
+      <Container
+        style={{ display: "flex", border: "2px solid black", padding: 0 }}
+      >
         <LeftImg>
-          <img src="https://www.gbgs.go.kr/design/special/img/life/life_tennis.gif" />
+          <img
+            src="https://cdn.011st.com/11dims/resize/600x600/quality/75/11src/product/1590136745/B.jpg?180000000"
+            style={{ width: "100%" }}
+          />
         </LeftImg>
         <RightContainer>
-          <h1>제목</h1>
-          <h5>부가정보 1</h5>
-          <h5>부가정보 2</h5>
-          <h5>부가정보 3</h5>
-          <p>
-            설명 : MZ세대가 예약제 스포츠를 요즘 많이 하는 이유나 MZ세대가
-            예약제 스포츠를 하면서 두드러지는 특징들같은걸 찾으면 그냥
-            예약서비스에서 좀더 차별점을 둘 수 있을거같음!! - 내생각..
-          </p>
-          <div style={{ display: "flex", justifyContent: "flex-end" }}>
-            <Btn onClick={() => navigate(`/apply/1`)}>예약하기</Btn>
-          </div>
+          <Tabs>
+            <Tab onClick={() => setTab("info")} selected={tab === "info"}>
+              정보
+            </Tab>
+            <Tab onClick={() => setTab("review")} selected={tab === "review"}>
+              리뷰
+            </Tab>
+          </Tabs>
+          <InfoContainer>
+            <Title>어떤 테니스장</Title>
+            <DetailInfo>
+              <EachLine>
+                <Label>시간:</Label>
+                <Info>00시~00시</Info>
+              </EachLine>
+              <EachLine>
+                <Label>지역:</Label>
+                <Info>00시 00구</Info>
+              </EachLine>
+              <EachLine>
+                <Label>인원 제한:</Label>
+                <Info>00명까지 수용 가능</Info>
+              </EachLine>
+              <EachLine>
+                <Label>특이사항:</Label>
+                <Info>~~</Info>
+              </EachLine>
+            </DetailInfo>
+          </InfoContainer>
+          {/* <div style={{ position: "absolute" }}> */}
+          <Btn onClick={() => navigate(`/apply/1`)}>예약하기</Btn>
+          {/* </div> */}
         </RightContainer>
       </Container>
     </>
   );
 }
-const LeftImg = styled.div``;
+const LeftImg = styled.div`
+  width: 40%;
+`;
 const RightContainer = styled.div`
-  margin-left: 15px;
+  width: 60%;
   position: relative;
+  padding-left: 50px;
 `;
 const Btn = styled.div`
-  border-radius: 10px;
-  width: 75px;
+  padding: 20px 45px;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: tomato;
+  background-color: #10dd3d;
   color: white;
   cursor: pointer;
+  font-size: 24px;
+  position: absolute;
+  bottom: 50px;
+  right: 50px;
 `;
+const Tabs = styled.div`
+  display: flex;
+  justify-content: flex-end;
+`;
+const Tab = styled.div`
+  padding: 5px 30px;
+  color: ${(props) => (props.selected ? "white" : "black")};
+  background-color: ${(props) => (props.selected ? "black" : "white")};
+  border-left: 1px solid black;
+  border-bottom: 1px solid black;
+  cursor: pointer;
+`;
+const InfoContainer = styled.div`
+  margin-top: 32px;
+`;
+const Title = styled.div`
+  width: max-content;
+  font-size: 32px;
+  border-bottom: 2px solid black;
+  font-weight: bolder;
+  margin-bottom: 30px;
+`;
+const DetailInfo = styled.div`
+  font-size: 18px;
+`;
+const EachLine = styled.div`
+  display: flex;
+`;
+const Label = styled.div`
+  margin-right: 10px;
+`;
+const Info = styled.div``;

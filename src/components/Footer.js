@@ -9,6 +9,7 @@ export default function Footer() {
         backgroundColor: "#34495e",
         color: "#bdc3c7",
         padding: "30px",
+        marginTop: "100px",
       }}
     >
       <div>
