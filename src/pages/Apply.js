@@ -14,6 +14,7 @@ export default function Apply() {
     const validation = true;
     if (validation) {
       setSuccess(true);
+      window.scroll(0, 0);
     }
   };
   return (
@@ -91,7 +92,14 @@ export default function Apply() {
                   alignItems: "flex-end",
                 }}
               >
-                <GoHomeBtn onClick={() => navigate("/")}>확인</GoHomeBtn>
+                <GoHomeBtn
+                  onClick={() => {
+                    window.scroll(0, 0);
+                    navigate("/");
+                  }}
+                >
+                  확인
+                </GoHomeBtn>
               </div>
             )}
           </div>

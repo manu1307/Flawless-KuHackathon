@@ -45,7 +45,14 @@ export default function Reservation() {
               />
             </div>
             <div style={{ display: "flex", alignItems: "flex-end" }}>
-              <Btn onClick={() => navigate(`/apply/1`)}>예약하기</Btn>
+              <Btn
+                onClick={() => {
+                  window.scroll(0, 0);
+                  navigate(`/apply/1`);
+                }}
+              >
+                예약하기
+              </Btn>
             </div>
           </InfoContainer>
         </RightContainer>

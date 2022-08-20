@@ -6,7 +6,14 @@ import styled from "styled-components";
 export default function InfoBanner() {
   const navigate = useNavigate();
   return (
-    <Col lg={4} md={6} onClick={() => navigate(`/reservation/1`)}>
+    <Col
+      lg={4}
+      md={6}
+      onClick={() => {
+        window.scroll(0, 0);
+        navigate(`/reservation/1`);
+      }}
+    >
       <Container
         fluid
         style={{ border: "1px solid black", padding: 0, marginBottom: "24px" }}
