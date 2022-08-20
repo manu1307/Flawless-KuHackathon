@@ -50,22 +50,28 @@ export default function Header() {
                     </div>
 
                     <Nav.Link
-                      className="text-center opacity-70 hover:opacity-100 hover:border-b border-black"
+                      className="text-center opacity-70 hover:opacity-100"
                       href="#action1"
                     >
-                      예약 정보
+                      <span className="px-3 py-1 text-center opacity-70 hover:opacity-100 hover:border-b border-black">
+                        예약 정보
+                      </span>
                     </Nav.Link>
                     <Nav.Link
-                      className="text-center opacity-70 hover:opacity-100 hover:border-b border-black"
+                      className="text-center opacity-70 hover:opacity-100"
                       href="#action2"
                     >
-                      마이 페이지
+                      <span className="px-3 py-1 text-center opacity-70 hover:opacity-100 hover:border-b border-black">
+                        예약 내역
+                      </span>
                     </Nav.Link>
                     <Nav.Link
-                      className="text-center opacity-70 hover:opacity-100 hover:border-b border-black"
+                      className="text-center opacity-70 hover:opacity-100"
                       href="#action2"
                     >
-                      공지사항
+                      <span className="px-3 py-1 text-center opacity-70 hover:opacity-100 hover:border-b border-black">
+                        공지사항
+                      </span>
                     </Nav.Link>
                   </Nav>
                 </Offcanvas.Body>
