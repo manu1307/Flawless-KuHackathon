@@ -6,7 +6,7 @@ export default function Footer() {
     <Container
       fluid
       style={{
-        backgroundColor: "#34495e",
+        backgroundColor: "#000000",
         color: "#bdc3c7",
         padding: "30px",
         marginTop: "100px",
@@ -25,7 +25,7 @@ export default function Footer() {
         <div>장린 : 디자이너</div>
         <div>오진우 : 기획자</div>
       </div>
-      <span>Copyright © 2019. Gracefulrain Co., Ltd.</span>
+      <span>Copyright © 2022. Flawless</span>
     </Container>
   );
 }

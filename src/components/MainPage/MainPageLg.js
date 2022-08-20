@@ -40,12 +40,12 @@ export default function MainPageLg() {
     width: 200px;
   `;
   return (
-    <div className="container mx-auto h-2/3">
-      <div className=" mx-auto px-4 h-full">
-        <div className=" flex justify-center w-full h-full">
-          <div className="mb-1 flex flex-col  w-8/12 h-full mx-2 ">
+    <div className="container mx-auto h-4/5">
+      <div className=" mx-auto h-full">
+        <div className=" flex justify-between w-full h-full">
+          <div className="mb-1 flex flex-col w-8/12 h-full mx-2 ">
             <div className="flex justify-center  h-1/2">
-              <div className="w-3/5 h-5/6 mx-2 p-3 border-black border-2 flex flex-col justify-between">
+              <div className="w-3/5 h-5/6 mr-2 p-3 border-black border-2 flex flex-col justify-between">
                 <div>
                   <First>예약 정보</First>
                   <UnderLine className="w-1/5" />
@@ -115,7 +115,7 @@ export default function MainPageLg() {
             </div>
           </div>
           <div
-            className="w-3/12 h-full p-3 flex flex-col"
+            className="w-4/12 h-full p-3 flex flex-col"
             style={{ border: "2px #10DD3D solid" }}
           >
             <div>
