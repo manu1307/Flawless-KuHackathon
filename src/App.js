@@ -1,12 +1,11 @@
 import "./App.css";
-import Footer from "./components/Footer";
-import Header from "./components/Header";
 import Router from "./Router";
-
+import Header from "../src/components/Layout/Header";
+import Footer from "../src/components/Layout/Footer";
 function App() {
   return (
     <>
-      <header>
+      <header style={{ marginBottom: "50px" }}>
         <Header />
       </header>
       <main>
