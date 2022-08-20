@@ -40,7 +40,7 @@ export default function MainPageLg() {
   `;
   const ImageCover = styled.div`
     overflow: hidden;
-    height: 1350px;
+    height: 135px;
     width: 135px;
   `;
 
@@ -140,7 +140,7 @@ export default function MainPageLg() {
                 <div className="flex justify-end">
                   <Button
                     inputColor="#FFFFFF"
-                    style={{ position: "relative", top: "-20px" }}
+                    style={{ position: "relative", top: "-18px" }}
                   >
                     보러가기
                   </Button>

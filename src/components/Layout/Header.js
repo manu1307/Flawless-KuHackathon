@@ -5,6 +5,8 @@ import Navbar from "react-bootstrap/Navbar";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import { ReactComponent as Logo } from "../../assets/Logo.svg";
 import { ReactComponent as ProjectLogo } from "../../assets/projectLogo.svg";
+import { ReactComponent as LoginLogo } from "../../assets/login.svg";
+
 import { useState } from "react";
 
 export default function Header() {
@@ -61,7 +63,14 @@ export default function Header() {
                 <Offcanvas.Body>
                   <Nav className="flex flex-col justify-center border-t-4 border-b-4 py-5 border-black">
                     <div className="w-full flex justify-center ">
-                      <div className="w-32 h-32  bg-slate-400 rounded-full"></div>
+                      <div className="w-32 h-32  bg-slate-400 rounded-full text-center">
+                        <div
+                          className="h-full flex flex-col justify-center"
+                          style={{ alignItems: "center" }}
+                        >
+                          <LoginLogo />
+                        </div>
+                      </div>
                     </div>
                     <div className="flex justify-center">
                       <div className="w-1/3  my-4 py-2 border-b-2 border-black">
@@ -73,7 +82,7 @@ export default function Header() {
 
                     <Nav.Link
                       className="text-center opacity-70 hover:opacity-100"
-                      href="#action1"
+                      href="/"
                     >
                       <span className="px-3 py-1 text-center opacity-70 hover:opacity-100 hover:border-b border-black">
                         예약 정보
@@ -81,7 +90,7 @@ export default function Header() {
                     </Nav.Link>
                     <Nav.Link
                       className="text-center opacity-70 hover:opacity-100"
-                      href="#action2"
+                      href="/"
                     >
                       <span className="px-3 py-1 text-center opacity-70 hover:opacity-100 hover:border-b border-black">
                         예약 내역
@@ -89,7 +98,7 @@ export default function Header() {
                     </Nav.Link>
                     <Nav.Link
                       className="text-center opacity-70 hover:opacity-100"
-                      href="#action2"
+                      href="/"
                     >
                       <span className="px-3 py-1 text-center opacity-70 hover:opacity-100 hover:border-b border-black">
                         공지사항
