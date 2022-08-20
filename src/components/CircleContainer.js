@@ -1,34 +1,30 @@
 import React from "react";
-import { Col, Container, Row } from "react-bootstrap";
+import { Container, Row } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 export default function CircleContainer() {
+  const navigate = useNavigate();
   return (
     <AllCircleContainer fulid>
-      <CircleBox>
+      <CircleBox onClick={() => navigate("/")}>
         <Circle>
           <img style={{ height: "60%" }} src="/img/logo.png" />
         </Circle>
         <Text>어디구장</Text>
       </CircleBox>
-      {/* </Col> */}
-      {/* <Col> */}
-      <CircleBox>
+      <CircleBox onClick={() => navigate("/sport?type=golf")}>
         <Circle>
           <img style={{ width: "40%" }} src="/img/golf.png" />
         </Circle>
         <Text>골프</Text>
       </CircleBox>
-      {/* </Col> */}
-      {/* <Col> */}
-      <CircleBox>
+      <CircleBox onClick={() => navigate("/sport?type=tennis")}>
         <Circle>
           <img style={{ width: "50%" }} src="/img/tennis.png" />
         </Circle>
         <Text>테니스</Text>
       </CircleBox>
-      {/* </Col> */}
-      {/* </Row> */}
     </AllCircleContainer>
   );
 }

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Container } from "react-bootstrap";
 import { useNavigate, useParams } from "react-router-dom";
 import styled from "styled-components";
-import TopPart from "../components/TopPart";
+import TopPart_NoDetail from "../components/TopPart_NoDetail";
 
 export default function Detail() {
   const { id } = useParams();
@@ -11,7 +11,9 @@ export default function Detail() {
   const [tab, setTab] = useState("info");
   return (
     <>
-      <TopPart />
+      <Container>
+        <TopPart_NoDetail />
+      </Container>
       <Container
         style={{ display: "flex", border: "2px solid black", padding: 0 }}
       >

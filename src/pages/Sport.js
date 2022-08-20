@@ -2,11 +2,9 @@ import React from "react";
 import { Container, Row } from "react-bootstrap";
 import styled from "styled-components";
 import InfoBanner from "../components/InfoBanner";
-
-import SearchInputContainer from "../components/SearchInputContainer";
 import TopPart from "../components/TopPart";
 
-export default function Golf() {
+export default function Sport() {
   return (
     <Container>
       <TopPart />
