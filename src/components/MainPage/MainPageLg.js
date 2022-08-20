@@ -2,12 +2,12 @@ import styled from "styled-components";
 import { ReactComponent as Logo } from "../../assets/Logo.svg";
 import { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSun } from "@fortawesome/free-regular-svg-icons";
-import {
-  faCloudShowersHeavy,
-  faCloud,
-} from "@fortawesome/free-solid-svg-icons";
 
+import { faCloud } from "@fortawesome/free-solid-svg-icons";
+import { Link, Navigate, useNavigate } from "react-router-dom";
+import { faSun } from "@fortawesome/free-regular-svg-icons";
+
+import { faCloudShowersHeavy } from "@fortawesome/free-solid-svg-icons";
 // Thunderstorm	Drizzle Rain Snow Clear Clouds
 export default function MainPageLg() {
   const First = styled.p`
@@ -177,6 +177,9 @@ export default function MainPageLg() {
                       <Button
                         inputColor="#10dd3d"
                         style={{ position: "relative", top: "-20px" }}
+                        onClick={() => {
+                          navigate("/ApplyInfo");
+                        }}
                       >
                         보러가기
                       </Button>
@@ -204,7 +207,7 @@ export default function MainPageLg() {
                 <div className="flex justify-end">
                   <Button
                     inputColor="#FFFFFF"
-                    style={{ position: "relative", top: "-20px" }}
+                    style={{ position: "relative", top: "-18px" }}
                   >
                     보러가기
                   </Button>
@@ -282,7 +285,7 @@ export default function MainPageLg() {
               <First style={{ marginTop: "35px" }}>
                 {weatherState === "Clear"
                   ? "야외 운동하기 좋은 날씨입니다.\n더위에 조심하세요!"
-                  : "기상 상태가 좋지 않아요. 실내에서 운동해보는 건 어때요?"}
+                  : "기상 상태가 좋지 않아요.\n실내에서 운동해보는 건 어때요?"}
               </First>
             </div>
             <div
@@ -297,7 +300,7 @@ export default function MainPageLg() {
                 <div className="flex justify-end">
                   <Button
                     inputColor="white"
-                    style={{ position: "relative", top: "15px" }}
+                    style={{ position: "relative", top: "0px" }}
                   >
                     보러가기
                   </Button>
@@ -310,3 +313,41 @@ export default function MainPageLg() {
     </div>
   );
 }
+
+const First = styled.p`
+  font-family: Noto Sans CJK KR;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 20px;
+  letter-spacing: 0em;
+  text-align: left;
+  margin: 0;
+`;
+const Second = styled.p`
+  font-family: "Noto Sans CJK KR";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 10px;
+`;
+const Button = styled.button`
+  box-sizing: border-box;
+  width: 75px;
+  height: 25px;
+  font-size: 13px;
+  font-weight: 600;
+  font-family: "Noto Sans CJK KR";
+  background: ${(props) => props.inputColor};
+  border: 1.8px solid #000000;
+`;
+const UnderLine = styled.div`
+  height: 3px;
+  background: black;
+  margin-top: 5px;
+  margin-bottom: 15px;
+`;
+const ImageCover = styled.div`
+  overflow: hidden;
+  height: 135px;
+  width: 135px;
+`;
