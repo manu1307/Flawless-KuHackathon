@@ -5,17 +5,17 @@ import Router from "./Router";
 
 function App() {
   return (
-    <>
-      <header>
+    <div className="h-screen">
+      <header className="h-1/6">
         <Header />
       </header>
-      <main>
+      <main className="h-5/6">
         <Router />
       </main>
-      <footer>
+      <footer className="h-1/6">
         <Footer />
       </footer>
-    </>
+    </div>
   );
 }
 
