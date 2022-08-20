@@ -3,8 +3,8 @@ import { Container } from "react-bootstrap";
 import { useRecoilValue } from "recoil";
 import { menuIsOpenState } from "../atoms/atom-menu";
 import { useNavigate } from "react-router-dom";
-import TopPart_NoDetail from "../components/TopPart_NoDetail";
 import MainPageLg from "../components/MainPage/MainPageLg";
+import TopPart_NoDetail from "../components/Layout/Top/TopPart_NoDetail";
 
 export default function Home() {
   const isOpen = useRecoilValue(menuIsOpenState);

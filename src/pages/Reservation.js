@@ -2,9 +2,10 @@ import React, { useState } from "react";
 import { Container } from "react-bootstrap";
 import { useNavigate, useParams } from "react-router-dom";
 import styled from "styled-components";
-import TopPart_NoDetail from "../components/TopPart_NoDetail";
+import TopPart_NoDetail from "../components/Layout/Top/TopPart_NoDetail";
+import DetailInfoBox from "../components/Reservation/DetailInfo";
 
-export default function Detail() {
+export default function Reservation() {
   const { id } = useParams();
   const navigate = useNavigate();
   const [tab, setTab] = useState("info");
@@ -33,24 +34,7 @@ export default function Detail() {
           </Tabs>
           <InfoContainer>
             <Title>어떤 테니스장</Title>
-            <DetailInfo>
-              <EachLine>
-                <Label>시간:</Label>
-                <Info>00시~00시</Info>
-              </EachLine>
-              <EachLine>
-                <Label>지역:</Label>
-                <Info>00시 00구</Info>
-              </EachLine>
-              <EachLine>
-                <Label>인원 제한:</Label>
-                <Info>00명까지 수용 가능</Info>
-              </EachLine>
-              <EachLine>
-                <Label>특이사항:</Label>
-                <Info>~~</Info>
-              </EachLine>
-            </DetailInfo>
+            <DetailInfoBox />
           </InfoContainer>
           {/* <div style={{ position: "absolute" }}> */}
           <Btn onClick={() => navigate(`/apply/1`)}>예약하기</Btn>
@@ -103,13 +87,3 @@ const Title = styled.div`
   font-weight: bolder;
   margin-bottom: 30px;
 `;
-const DetailInfo = styled.div`
-  font-size: 18px;
-`;
-const EachLine = styled.div`
-  display: flex;
-`;
-const Label = styled.div`
-  margin-right: 10px;
-`;
-const Info = styled.div``;

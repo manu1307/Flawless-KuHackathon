@@ -1,8 +1,8 @@
 import React from "react";
 import { Container, Row } from "react-bootstrap";
 import styled from "styled-components";
-import InfoBanner from "../components/InfoBanner";
-import TopPart from "../components/TopPart";
+import InfoBanner from "../components/Banner/InfoBanner";
+import TopPart from "../components/Layout/Top/TopPart";
 
 export default function Sport() {
   return (

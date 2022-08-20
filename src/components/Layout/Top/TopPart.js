@@ -1,9 +1,8 @@
 import React from "react";
 import { Row, Form, Col } from "react-bootstrap";
 import styled from "styled-components";
+import FormSelect from "../../FormSelect";
 import CircleContainer from "./CircleContainer";
-import FormRegion from "./FormRegion";
-import FormSelect from "./FormSelect";
 import SearchInputContainer from "./SearchInputContainer";
 
 export default function TopPart() {
