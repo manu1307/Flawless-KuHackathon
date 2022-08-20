@@ -3,15 +3,19 @@ import { Container, Row, Col } from "react-bootstrap";
 import styled from "styled-components";
 import SearchInputContainer from "../components/SearchInputContainer";
 import RecommendBanner from "../components/RecommendBanner";
-import InfoBanner from "../components/InfoBanner";
+import Menu from "../components/Menu";
+import { useRecoilValue } from "recoil";
+import { menuIsOpenState } from "../atoms/atom-menu";
 export default function Home() {
+  const isOpen = useRecoilValue(menuIsOpenState);
   return (
-    <Container>
-      <SearchContainer>
-        <SearchInputContainer />
-      </SearchContainer>
-      <CategoryContainer>
-        {/* <Row>
+    <div style={{ display: "flex" }}>
+      <Container>
+        <SearchContainer>
+          <SearchInputContainer />
+        </SearchContainer>
+        <CategoryContainer>
+          {/* <Row>
           <Col style={{ textAlign: "center" }}>
             <div style={{ border: "1px solid black",  }}>테니스</div>
           </Col>
@@ -19,19 +23,19 @@ export default function Home() {
             <div style={{ border: "1px solid black",  }}>골프</div>
           </Col>
         </Row> */}
-        <CategoryBox>카테고리 1</CategoryBox>
-        <CategoryBox>카테고리 2</CategoryBox>
-        <CategoryBox>카테고리 3</CategoryBox>
-      </CategoryContainer>
-      <BannerContainer>
-        <Row>
-          <RecommendBanner />
-          <RecommendBanner />
-          <RecommendBanner />
-          <RecommendBanner />
-        </Row>
-      </BannerContainer>
-      {/* <Row>
+          <CategoryBox>카테고리 1</CategoryBox>
+          <CategoryBox>카테고리 2</CategoryBox>
+          <CategoryBox>카테고리 3</CategoryBox>
+        </CategoryContainer>
+        <BannerContainer>
+          <Row>
+            <RecommendBanner />
+            <RecommendBanner />
+            <RecommendBanner />
+            <RecommendBanner />
+          </Row>
+        </BannerContainer>
+        {/* <Row>
         <InfoBanner />
         <InfoBanner />
         <InfoBanner />
@@ -39,7 +43,9 @@ export default function Home() {
         <InfoBanner />
         <InfoBanner />
       </Row> */}
-    </Container>
+      </Container>
+      {isOpen && <Menu />}
+    </div>
   );
 }
 const SearchContainer = styled.div`
