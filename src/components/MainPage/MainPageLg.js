@@ -2,10 +2,12 @@ import styled from "styled-components";
 import { ReactComponent as Logo } from "../../assets/Logo.svg";
 import { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 import { faCloud } from "@fortawesome/free-solid-svg-icons";
 import { Link, Navigate, useNavigate } from "react-router-dom";
 import { faSun } from "@fortawesome/free-regular-svg-icons";
 
+import { faCloudShowersHeavy } from "@fortawesome/free-solid-svg-icons";
 // Thunderstorm	Drizzle Rain Snow Clear Clouds
 export default function MainPageLg() {
   const navigate = useNavigate();
@@ -13,13 +15,72 @@ export default function MainPageLg() {
   const [currentTemperature, setCurrentTemperature] = useState();
   const [weatherState, setWeatherState] = useState("Clear");
   const [currentDate, setCurrentDate] = useState("");
+  const switchToDay = (key) => {
+    switch (key) {
+      case 0:
+        return "일";
+      case 1:
+        return "월";
+      case 2:
+        return "화";
+      case 3:
+        return "수";
+      case 4:
+        return "목";
+      case 5:
+        return "금";
+      case 6:
+        return "토";
+      default:
+        break;
+    }
+  };
+  const switchToIcon = (state) => {
+    switch (state) {
+      case "Thunderstorm":
+        return (
+          <div style={{ display: "flex", justifyContent: "flex-start" }}>
+            <FontAwesomeIcon size="8x" icon={faCloudShowersHeavy} />
+          </div>
+        );
+      case "Drizzle":
+        return (
+          <div style={{ display: "flex", justifyContent: "flex-start" }}>
+            <FontAwesomeIcon size="8x" icon={faCloudShowersHeavy} />
+          </div>
+        );
+      case "Rain":
+        return (
+          <div style={{ display: "flex", justifyContent: "flex-start" }}>
+            <FontAwesomeIcon size="8x" icon={faCloudShowersHeavy} />
+          </div>
+        );
+      case "Clear":
+        return (
+          <div style={{ display: "flex", justifyContent: "flex-start" }}>
+            <FontAwesomeIcon size="8x" icon={faSun} />
+          </div>
+        );
+      case "Clouds":
+        return (
+          <div style={{ display: "flex", justifyContent: "flex-start" }}>
+            <FontAwesomeIcon size="8x" icon={faCloud} />
+          </div>
+        );
+      default:
+        return (
+          <div style={{ display: "flex", justifyContent: "flex-start" }}>
+            <FontAwesomeIcon size="8x" icon={faSun} />
+          </div>
+        );
+    }
+  };
   useEffect(() => {
     const fetchWeatherData = async () => {
       const response = await fetch(
         `https://api.openweathermap.org/data/2.5/weather?lat=37&lon=126&appid=f8fe1ee09dc50ad5f963f1bee96f6832`
       );
       const weatherData = await response.json();
-      console.log(weatherData);
       const { main } = weatherData.weather[0];
       setWeatherState(main);
       setCurrentTemperature(() => {
@@ -30,7 +91,7 @@ export default function MainPageLg() {
     setCurrentDate(() => {
       return `${date.getFullYear()}년 ${
         date.getMonth() + 1
-      }월 ${date.getDate()}일`;
+      }월 ${date.getDate()}일 ${switchToDay(date.getDay())}요일`;
     });
     fetchWeatherData();
   }, []);
@@ -161,13 +222,34 @@ export default function MainPageLg() {
               style={{ border: "2px #10DD3D solid" }}
             >
               <div>
-                <First>날씨</First>
-                <UnderLine className="w-1/6" />
+                <First>오늘의 날씨</First>
+                <UnderLine className="w-2/6" />
               </div>
-              <Second>{currentDate}</Second>
+              <Second
+                style={{
+                  marginTop: "10px",
+                  fontSize: "20px",
+                  fontWeight: "700",
+                }}
+              >
+                {currentDate}
+              </Second>
               <Second>기온 : {currentTemperature}℃</Second>
-              <div>{weatherState}</div>
-              <FontAwesomeIcon icon={faCloud} size="8x" />
+              <Second>
+                {weatherState === "Clear"
+                  ? "맑음"
+                  : weatherState === "Clouds"
+                  ? "흐림"
+                  : "비"}
+              </Second>
+              <Logo width="40" height="80" />
+              {switchToIcon(weatherState)}
+              {/* Thunderstorm	Drizzle Rain Snow Clear Clouds */}
+              <First style={{ whiteSpace: "pre", marginTop: "35px" }}>
+                {weatherState === "Clear"
+                  ? "야외 운동하기 좋은 날씨입니다.\n더위에 조심하세요!"
+                  : "기상 상태가 좋지 않아요. 실내에서 운동해보는 건 어때요?"}
+              </First>
             </div>
             <div
               className="w-full h-1/4 p-3"
