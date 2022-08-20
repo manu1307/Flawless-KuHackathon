@@ -1,13 +1,19 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Container, Row } from "react-bootstrap";
 import styled from "styled-components";
 import InfoBanner from "../components/Banner/InfoBanner";
 import TopPart from "../components/Layout/Top/TopPart";
 
 export default function Sport() {
+  const URL = window.location.href;
+  const [type, setType] = useState("");
+  useEffect(() => {
+    const sprotsType = URL.split("?type=")[1];
+    setType(sprotsType);
+  }, [URL]);
   return (
     <Container>
-      <TopPart />
+      <TopPart sprotsType={type} />
       <BannerContainer>
         <Row>
           <InfoBanner />
@@ -28,18 +34,11 @@ export default function Sport() {
     </Container>
   );
 }
-const SearchContainer = styled.div`
-  padding: 10px;
-  display: flex;
-  justify-content: center;
-`;
 const CategoryContainer = styled.div`
   margin: 30px 0;
   display: flex;
   justify-content: center;
 `;
-
-const DetailCategoryContainer = styled(CategoryContainer)``;
 
 const CategoryBox = styled.div`
   width: 75px;
@@ -50,10 +49,4 @@ const CategoryBox = styled.div`
   justify-content: center;
   align-items: center;
 `;
-
-const DetailCategoryBox = styled(CategoryBox)`
-  width: 100px;
-  height: 40px;
-`;
-
 const BannerContainer = styled.div``;

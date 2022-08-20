@@ -13,13 +13,23 @@ export default function CircleContainer() {
         </Circle>
         <Text>어디구장</Text>
       </CircleBox>
-      <CircleBox onClick={() => navigate("/sport?type=golf")}>
+      <CircleBox
+        onClick={() => {
+          navigate("/sport?type=golf");
+          window.location.reload();
+        }}
+      >
         <Circle>
           <img style={{ width: "40%" }} src="/img/golf.png" />
         </Circle>
         <Text>골프</Text>
       </CircleBox>
-      <CircleBox onClick={() => navigate("/sport?type=tennis")}>
+      <CircleBox
+        onClick={() => {
+          navigate("/sport?type=tennis");
+          window.location.reload();
+        }}
+      >
         <Circle>
           <img style={{ width: "50%" }} src="/img/tennis.png" />
         </Circle>
