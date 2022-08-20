@@ -4,19 +4,65 @@ import { useNavigate, useParams } from "react-router-dom";
 import styled from "styled-components";
 import InputContainerBox from "../components/Apply/InputContainerBox";
 import TopPart_NoDetail from "../components/Layout/Top/TopPart_NoDetail";
+import InfoTabSmall from "../components/Mobile/InfoTabSmall";
 import DetailInfoBox from "../components/Reservation/DetailInfo";
 
 export default function Apply() {
   const { id } = useParams();
   const navigate = useNavigate();
   const [success, setSuccess] = useState(false);
+  const width = window.screen.width;
+
   const onSubmit = () => {
     const validation = true;
     if (validation) {
       setSuccess(true);
+      window.scroll(0, 0);
     }
   };
-  return (
+  return width < 500 ? (
+    <>
+      {success && (
+        <SuccessMobile>
+          예약이 완료되었습니다.
+          <br />
+          오늘도 안전하고 즐거운 테니스 생활 파이팅!
+        </SuccessMobile>
+      )}
+      <InfoTabSmall
+        data={
+          success
+            ? [
+                { label: "예약자 이름", value: "심하민" },
+                { label: "전화번호", value: "010-0000-0000" },
+                { label: "동행인 수", value: "3명" },
+                { label: "예약 시간", value: "15:00~17:00" },
+              ]
+            : [
+                { label: "테니스장 종류", value: "잔디" },
+                { label: "장소", value: "실외" },
+                { label: "금액", value: "시간당 30,000원" },
+                { label: "특이사항", value: "정비로 인해 사용불가" },
+              ]
+        }
+      />
+      {success ? (
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            paddingTop: "30px",
+          }}
+        >
+          <BtnMobile onClick={() => navigate("/")}>확인</BtnMobile>
+        </div>
+      ) : (
+        <ApplyInfoContainerMobile>
+          <InputContainerBox onSubmit={onSubmit} />
+        </ApplyInfoContainerMobile>
+      )}
+    </>
+  ) : (
     <Container>
       {success ? (
         <Success>
@@ -91,7 +137,14 @@ export default function Apply() {
                   alignItems: "flex-end",
                 }}
               >
-                <GoHomeBtn onClick={() => navigate("/")}>확인</GoHomeBtn>
+                <GoHomeBtn
+                  onClick={() => {
+                    window.scroll(0, 0);
+                    navigate("/");
+                  }}
+                >
+                  확인
+                </GoHomeBtn>
               </div>
             )}
           </div>
@@ -131,6 +184,11 @@ const ApplyInfoContainer = styled.div`
   justify-content: flex-end;
 `;
 
+const ApplyInfoContainerMobile = styled(ApplyInfoContainer)`
+  width: 100%;
+  margin-top: 30px;
+`;
+
 const Title = styled.div`
   width: max-content;
   font-size: 32px;
@@ -143,6 +201,10 @@ const Success = styled.div`
   font-size: 32px;
   font-weight: bolder;
 `;
+const SuccessMobile = styled(Success)`
+  font-size: 16px;
+  margin-bottom: 30px;
+`;
 const Btn = styled.div`
   padding: 20px 45px;
   display: flex;
@@ -152,6 +214,10 @@ const Btn = styled.div`
   color: white;
   cursor: pointer;
   font-size: 24px;
+`;
+const BtnMobile = styled(Btn)`
+  font-size: 16px;
+  padding: 10px 20px;
 `;
 const TopDiv = styled.div`
   display: flex;
