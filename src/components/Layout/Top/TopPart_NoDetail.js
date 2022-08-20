@@ -8,19 +8,11 @@ export default function TopPart_NoDetail() {
   return (
     <>
       <Row style={{ marginBottom: "30px" }}>
-        <Col
-          lg={{ span: 7, order: 1 }}
-          xs={{ span: 12, order: 2 }}
-          style={{
-            position: "relative",
-          }}
-        >
-          <LeftContainer>
-            <SearchContainer>
-              <SearchInputContainer />
-            </SearchContainer>
-          </LeftContainer>
-        </Col>
+        <SearchCol lg={{ span: 7, order: 1 }} xs={{ span: 12, order: 2 }}>
+          <SearchContainer>
+            <SearchInputContainer />
+          </SearchContainer>
+        </SearchCol>
         <Col
           lg={{ span: 5, order: 2 }}
           // md={{ span: 12, order: 1 }}
@@ -32,15 +24,21 @@ export default function TopPart_NoDetail() {
     </>
   );
 }
-const SearchContainer = styled.div`
-  @media screen and (max-width: 998px) {
-    justify-content: center;
-    margin-top: 30px;
+
+const SearchCol = styled(Col)`
+  /* border: 1px solid red; */
+  display: flex;
+  flex-direction: column;
+  @media screen and (min-width: 750px) {
+    justify-content: flex-end;
   }
 `;
 
-const LeftContainer = styled.div`
-  position: absolute;
-  bottom: 0;
-  width: 100%;
+const SearchContainer = styled.div`
+  /* border: 1px solid blue; */
+  display: flex;
+  @media screen and (max-width: 992px) {
+    margin-top: 30px;
+    justify-content: center;
+  }
 `;
