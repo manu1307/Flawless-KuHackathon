@@ -112,21 +112,24 @@ export default function MainPageSm() {
             </div>
           </Box>
           <Box borderColor="#000" className="h-full p-3 my-2 ">
-            <div>
-              <First className="flex justify-between font-bold">
-                예약 정보
-              </First>
-              <UnderLine className="w-1/3" />
-            </div>
-            <div>
-              <div className="flex justify-between">
-                <Button
-                  inputColor="#10dd3d"
-                  borderInput="1px solid #000"
-                  className="text-black"
-                >
-                  보러 가기
-                </Button>
+            <div className="flex flex-col">
+              <div>
+                <First className="flex justify-between font-bold">
+                  예약 정보
+                </First>
+                <UnderLine className="w-1/3" />
+              </div>
+              <div>
+                <div className="flex justify-end">
+                  <Button
+                    inputColor="#10dd3d"
+                    borderInput="1px solid #000"
+                    className="text-black"
+                    style={{ position: "relative", top: "30px" }}
+                  >
+                    보러 가기
+                  </Button>
+                </div>
               </div>
             </div>
           </Box>
