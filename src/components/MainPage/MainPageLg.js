@@ -106,14 +106,12 @@ export default function MainPageLg() {
                 </Second>
                 <Logo width="40" height="40" />
                 <div className="flex justify-end">
-                  <Link to="/applyinfo">
-                    <Button
-                      inputColor="#FFFFFF"
-                      style={{ position: "relative", top: "-18px" }}
-                    >
-                      보러가기
-                    </Button>
-                  </Link>
+                  <Button
+                    inputColor="#FFFFFF"
+                    style={{ position: "relative", top: "-18px" }}
+                  >
+                    보러가기
+                  </Button>
                 </div>
               </div>
             </div>
