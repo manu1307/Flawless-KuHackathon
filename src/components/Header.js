@@ -16,12 +16,15 @@ export default function Header() {
   return (
     <>
       {[false].map((expand) => (
-        <Navbar key={expand} expand={expand}>
+        <Navbar key={expand} expand={expand} className="bg-black">
           <Container fluid className="py-1">
             <div className="w-screen flex justify-between">
               {/* <div className="">{"   "}</div> */}
-              <Navbar.Brand href="#" className="text-center w-4 lg:w-full">
-                로고
+              <Navbar.Brand
+                href="/"
+                className="text-center w-4 text-white lg:w-full"
+              >
+                어디구장
               </Navbar.Brand>
               <Navbar.Toggle
                 aria-controls={`offcanvasNavbar-expand-${expand}`}
@@ -41,14 +44,27 @@ export default function Header() {
                     <div className="w-full flex justify-center">
                       <div className="w-32 h-32  bg-slate-400 rounded-full"></div>
                     </div>
-                    <div className="w-full flex justify-center my-4">
-                      <div className="text-xs ">사용자 이름</div>
+                    <div className="flex justify-center">
+                      <div className="w-1/3  my-4 py-2 border-b-2">
+                        <div className="text-xl font-bold flex justify-center">
+                          김구장
+                        </div>
+                      </div>
                     </div>
-                    <Nav.Link className="text-center" href="#action1">
-                      내 예약 목록
+                    <div className="flex justify-center mb-4">
+                      <div className="text-xs">14일 후 예약이 있습니다.</div>
+                    </div>
+                    <Nav.Link
+                      className="text-center opacity-70 hover:opacity-100"
+                      href="#action1"
+                    >
+                      예약 정보
                     </Nav.Link>
-                    <Nav.Link className="text-center" href="#action2">
-                      또 뭘 할까
+                    <Nav.Link
+                      className="text-center opacity-70 hover:opacity-100"
+                      href="#action2"
+                    >
+                      정보 수정
                     </Nav.Link>
                   </Nav>
                 </Offcanvas.Body>

@@ -11,8 +11,8 @@ export default function Home() {
   const isOpen = useRecoilValue(menuIsOpenState);
   const navigate = useNavigate();
   return (
-    <div style={{ display: "flex" }}>
-      <Container>
+    <div className="h-screen">
+      <div className="h-screen">
         <SearchContainer>
           <SearchInputContainer />
         </SearchContainer>
@@ -27,14 +27,24 @@ export default function Home() {
             카테고리 3
           </CategoryBox>
         </CategoryContainer>
-        <BannerContainer>
-          <Row>
-            <RecommendBanner />
-            <RecommendBanner />
-            <RecommendBanner />
-            <RecommendBanner />
-          </Row>
-        </BannerContainer>
+        <div className="container mx-auto h-1/2">
+          <div className=" mx-auto px-4 h-full">
+            <div className="flex justify-center w-full h-full">
+              <div className="flex flex-col w-8/12 h-full mx-2 ">
+                <div className="flex h-1/2">
+                  <div className="w-3/5 h-full mx-2 bg-slate-400">d</div>
+                  <div className="w-2/5 h-full mx-2 bg-slate-400">a</div>
+                </div>
+                <div className="flex h-1/2">
+                  <div className="w-2/5 h-full mt-1 mx-2 bg-slate-400">f</div>
+                  <div className="w-3/5 h-full mt-1 mx-2 bg-slate-400">e</div>
+                </div>
+              </div>
+              <div className="w-3/12 mx-2 bg-green-300">d</div>
+            </div>
+          </div>
+        </div>
+
         {/* <Row>
         <InfoBanner />
         <InfoBanner />
@@ -43,8 +53,7 @@ export default function Home() {
         <InfoBanner />
         <InfoBanner />
       </Row> */}
-      </Container>
-      {isOpen && <Menu />}
+      </div>
     </div>
   );
 }

@@ -9,7 +9,7 @@ function App() {
       <header>
         <Header />
       </header>
-      <main>
+      <main className="h-screen">
         <Router />
       </main>
       <footer>
