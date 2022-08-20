@@ -8,6 +8,7 @@ import {
   faCloudShowersHeavy,
 } from "@fortawesome/free-solid-svg-icons";
 import { faSun } from "@fortawesome/free-regular-svg-icons";
+import { useNavigate } from "react-router-dom";
 
 export default function MainPageSm() {
   const Box = styled.div`
@@ -27,7 +28,7 @@ export default function MainPageSm() {
     font-style: normal;
     font-weight: 600;
     font-size: 10px;
-    line-height: 10px;
+    line-height: 0px;
   `;
   const Button = styled.button`
     box-sizing: border-box;
@@ -45,6 +46,8 @@ export default function MainPageSm() {
     margin-top: 5px;
     margin-bottom: 15px;
   `;
+
+  const navigate = useNavigate();
 
   const [currentTemperature, setCurrentTemperature] = useState();
   const [weatherState, setWeatherState] = useState("Clear");
@@ -223,13 +226,29 @@ export default function MainPageSm() {
                 </First>
                 <UnderLine className="w-1/3" />
               </div>
-              <div>
+              <First
+                style={{
+                  fontSize: "14px",
+                  marginBottom: "3px",
+                }}
+              >
+                어쩌구저쩌구테니스장
+              </First>
+              <Second className="mt-1">
+                예약날짜 {new Date().toLocaleDateString()}
+              </Second>
+              <Second>예약시간 15:00-17:00</Second>
+              <div className="flex justify-between">
+                <Second>동행인 수 3명</Second>
                 <div className="flex justify-end">
                   <Button
                     inputColor="#10dd3d"
                     borderInput="1px solid #000"
                     className="text-black"
-                    style={{ position: "relative", top: "30px" }}
+                    style={{ position: "relative", top: "-10px" }}
+                    onClick={() => {
+                      navigate("/ApplyInfo");
+                    }}
                   >
                     보러 가기
                   </Button>

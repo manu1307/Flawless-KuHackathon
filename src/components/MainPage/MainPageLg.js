@@ -263,7 +263,7 @@ export default function MainPageLg() {
                 <div className="flex justify-end">
                   <Button
                     inputColor="white"
-                    style={{ position: "relative", top: "15px" }}
+                    style={{ position: "relative", top: "0px" }}
                   >
                     보러가기
                   </Button>
