@@ -16,7 +16,7 @@ export default function SearchInputContainer() {
           setSearch("");
         }}
       >
-        <FontAwesomeIcon icon={faMagnifyingGlass} />
+        <FontAwesomeIcon icon={faMagnifyingGlass} color="#10DD3D" />
         <Input
           placeholder="검색어를 입력하세요"
           onChange={(e) => setSearch(e.target.value)}
@@ -28,9 +28,8 @@ export default function SearchInputContainer() {
 }
 const SearchBox = styled.div`
   width: 100%;
-  border: 2px solid black;
-  border-radius: 30px;
-  max-width: 400px;
+  border-bottom: 2px solid #10dd3d;
+  width: 80%;
   padding: 5px 15px;
 `;
 
@@ -38,4 +37,7 @@ const Input = styled.input`
   border: 0;
   outline: none;
   margin-left: 10px;
+  ::placeholder {
+    color: #10dd3d;
+  }
 `;
