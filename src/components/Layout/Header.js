@@ -4,6 +4,8 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import { ReactComponent as Logo } from "../../assets/Logo.svg";
+import { ReactComponent as ProjectLogo } from "../../assets/projectLogo.svg";
+import { useState } from "react";
 
 export default function Header() {
   return (

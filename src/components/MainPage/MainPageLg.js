@@ -37,12 +37,10 @@ export default function MainPageLg() {
   `;
   const ImageCover = styled.div`
     overflow: hidden;
-    height: 250px;
-    width: 200px;
+    height: 1350px;
+    width: 135px;
   `;
-  const absoluteButton = styled.button`
-    position: absolute;
-  `;
+
   const [currentTemperature, setCurrentTemperature] = useState();
   const [currentDate, setCurrentDate] = useState("");
   useEffect(() => {
@@ -78,7 +76,7 @@ export default function MainPageLg() {
                 <div className="flex justify-between">
                   <ImageCover>
                     <img
-                      src="https://static.cdn.soomgo.com/upload/service/be5f3008-0899-41dc-87c4-fbf6c819f1be.png"
+                      src="../img/tennisGame.png"
                       alt="테니스 이미지"
                       className="w-full"
                     />
