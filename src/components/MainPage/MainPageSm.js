@@ -2,6 +2,12 @@ import styled from "styled-components";
 import { ReactComponent as Logo } from "../../assets/Logo.svg";
 import { ReactComponent as GolfLogo } from "../../assets/Golf-Logo.svg";
 import { useEffect, useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faCloud,
+  faCloudShowersHeavy,
+} from "@fortawesome/free-solid-svg-icons";
+import { faSun } from "@fortawesome/free-regular-svg-icons";
 
 export default function MainPageSm() {
   const Box = styled.div`
@@ -41,6 +47,7 @@ export default function MainPageSm() {
   `;
 
   const [currentTemperature, setCurrentTemperature] = useState();
+  const [weatherState, setWeatherState] = useState("Clear");
   const [currentDate, setCurrentDate] = useState("");
   useEffect(() => {
     const fetchWeatherData = async () => {
@@ -48,6 +55,8 @@ export default function MainPageSm() {
         `https://api.openweathermap.org/data/2.5/weather?lat=37&lon=126&appid=f8fe1ee09dc50ad5f963f1bee96f6832`
       );
       const weatherData = await response.json();
+      const { main } = weatherData.weather[0];
+      setWeatherState(main);
       setCurrentTemperature(() => {
         return (weatherData.main.temp - 273).toFixed(1);
       });
@@ -56,11 +65,106 @@ export default function MainPageSm() {
     setCurrentDate(() => {
       return `${date.getFullYear()}년 ${
         date.getMonth() + 1
-      }월 ${date.getDate()}일`;
+      }월 ${date.getDate()}일 ${switchToDay(date.getDay())}요일`;
     });
     fetchWeatherData();
   }, []);
-
+  const switchToDay = (key) => {
+    switch (key) {
+      case 0:
+        return "일";
+      case 1:
+        return "월";
+      case 2:
+        return "화";
+      case 3:
+        return "수";
+      case 4:
+        return "목";
+      case 5:
+        return "금";
+      case 6:
+        return "토";
+      default:
+        break;
+    }
+  };
+  const switchToIcon = (state) => {
+    switch (state) {
+      case "Thunderstorm":
+        return (
+          <div
+            style={{
+              position: "absolute",
+              top: 20,
+              right: 35,
+            }}
+          >
+            <FontAwesomeIcon size="6x" icon={faCloudShowersHeavy} />
+          </div>
+        );
+      case "Drizzle":
+        return (
+          <div
+            style={{
+              position: "absolute",
+              top: 20,
+              right: 350,
+            }}
+          >
+            <FontAwesomeIcon size="6x" icon={faCloudShowersHeavy} />
+          </div>
+        );
+      case "Rain":
+        return (
+          <div
+            style={{
+              position: "absolute",
+              top: 20,
+              right: 350,
+            }}
+          >
+            <FontAwesomeIcon size="6x" icon={faCloudShowersHeavy} />
+          </div>
+        );
+      case "Clear":
+        return (
+          <div
+            style={{
+              position: "absolute",
+              top: 20,
+              right: 35,
+            }}
+          >
+            <FontAwesomeIcon size="6x" icon={faSun} />
+          </div>
+        );
+      case "Clouds":
+        return (
+          <div
+            style={{
+              position: "absolute",
+              top: 20,
+              right: 35,
+            }}
+          >
+            <FontAwesomeIcon size="6x" icon={faCloud} />
+          </div>
+        );
+      default:
+        return (
+          <div
+            style={{
+              position: "absolute",
+              top: 20,
+              right: 35,
+            }}
+          >
+            <FontAwesomeIcon size="6x" icon={faSun} />
+          </div>
+        );
+    }
+  };
   return (
     <div className="container flex justify-center mx-auto ">
       <div className="flex flex-col w-5/6 h-screen">
@@ -130,15 +234,25 @@ export default function MainPageSm() {
               </div>
             </div>
           </Box>
-          <Box borderColor="#10dd3d" className="h-full p-3 my-2 ">
+          <Box
+            borderColor="#10dd3d"
+            className="h-full p-3 my-2 "
+            style={{ position: "relative" }}
+          >
             <div>
               <First className="flex justify-between font-bold">날씨</First>
               <UnderLine className="w-1/6" />
             </div>
-            <div>
-              <Second>{currentDate}</Second>
-              <Second>현재 기온 : {currentTemperature}℃</Second>
-            </div>
+            <Second>{currentDate}</Second>
+            <Second>현재 기온 : {currentTemperature}℃</Second>
+            <Second>
+              {weatherState === "Clear"
+                ? "맑음"
+                : weatherState === "Clouds"
+                ? "흐림"
+                : "비"}
+            </Second>
+            {switchToIcon(weatherState)}
           </Box>
 
           <Box
