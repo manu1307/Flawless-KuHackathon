@@ -5,7 +5,8 @@ import FormSelect from "../../FormSelect";
 import CircleContainer from "./CircleContainer";
 import SearchInputContainer from "./SearchInputContainer";
 
-export default function TopPart() {
+export default function TopPart({ sprotsType }) {
+  console.log(sprotsType);
   return (
     <>
       <Row>
@@ -21,18 +22,10 @@ export default function TopPart() {
             <DetailCategoryContainer>
               <FormSelect
                 data={{
-                  label: "type",
-                  labelKor: "테니스 구장 종류",
-                  option: ["하드", "잔디", "클레이"],
-                  width: "30%",
-                }}
-              />
-              <FormSelect
-                data={{
                   label: "position",
                   labelKor: "장소",
                   option: ["실내", "실외"],
-                  width: "20%",
+                  width: sprotsType === "tennis" ? "20%" : "33%",
                 }}
               />
               <FormSelect
@@ -40,7 +33,7 @@ export default function TopPart() {
                   label: "money",
                   labelKor: "금액 분포",
                   option: ["3만원 미만", "3~5만원", "5만원 이상"],
-                  width: "30%",
+                  width: sprotsType === "tennis" ? "30%" : "33%",
                 }}
               />
               <FormSelect
@@ -48,9 +41,19 @@ export default function TopPart() {
                   label: "region",
                   labelKor: "지역",
                   option: ["서울", "경기", "그 외"],
-                  width: "20%",
+                  width: sprotsType === "tennis" ? "20%" : "33%",
                 }}
               />
+              {sprotsType === "tennis" ? (
+                <FormSelect
+                  data={{
+                    label: "type",
+                    labelKor: "테니스 구장 종류",
+                    option: ["하드", "잔디", "클레이"],
+                    width: "30%",
+                  }}
+                />
+              ) : null}
               {/* <FormRegion /> */}
             </DetailCategoryContainer>
           </LeftContainer>
