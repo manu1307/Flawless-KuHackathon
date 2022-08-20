@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { ReactComponent as Logo } from "../../assets/Logo.svg";
+import { useEffect, useState } from "react";
 
 export default function MainPageLg() {
   const First = styled.p`
@@ -36,9 +37,30 @@ export default function MainPageLg() {
   `;
   const ImageCover = styled.div`
     overflow: hidden;
-    height: 200px;
+    height: 250px;
     width: 200px;
   `;
+  const [currentTemperature, setCurrentTemperature] = useState();
+  const [currentDate, setCurrentDate] = useState("");
+  useEffect(() => {
+    const fetchWeatherData = async () => {
+      const response = await fetch(
+        `https://api.openweathermap.org/data/2.5/weather?lat=37&lon=126&appid=f8fe1ee09dc50ad5f963f1bee96f6832`
+      );
+      const weatherData = await response.json();
+      setCurrentTemperature(() => {
+        return (weatherData.main.temp - 273).toFixed(1);
+      });
+    };
+    const date = new Date();
+    setCurrentDate(() => {
+      return `${date.getFullYear()}년 ${
+        date.getMonth() + 1
+      }월 ${date.getDate()}일`;
+    });
+    fetchWeatherData();
+  }, []);
+
   return (
     <div className="container mx-auto h-4/5">
       <div className=" mx-auto h-full">
@@ -55,20 +77,39 @@ export default function MainPageLg() {
                     <img
                       src="https://static.cdn.soomgo.com/upload/service/be5f3008-0899-41dc-87c4-fbf6c819f1be.png"
                       alt="테니스 이미지"
-                      className="object-fill"
+                      className="w-full"
                     />
                   </ImageCover>
-                  <div className="flex flex-col">
-                    <Second>어쩌고 테니스장</Second>
-                    <Second>몇일 몇시</Second>
-                    <div className="h-full flex align-bottom">
+                  <div className="flex flex-col w-1/2">
+                    <div
+                      style={{
+                        fontSize: "14px",
+                        color: "#10dd3d",
+                        fontWeight: "bold",
+                      }}
+                    >
+                      예약한 날짜까지 3일
+                    </div>
+                    <First
+                      style={{
+                        fontSize: "18px",
+                        marginBottom: "15px",
+                        marginTop: "5px",
+                      }}
+                    >
+                      어쩌구저쩌구테니스장
+                    </First>
+                    <Second>예약날짜 {new Date().toLocaleDateString()}</Second>
+                    <Second>예약시간 15:00-17:00</Second>
+                    <Second>동행인 수 3명</Second>
+                    <div className="h-1/2 flex justify-end">
                       <Button inputColor="#10dd3d">보러가기</Button>
                     </div>
                   </div>
                 </div>
               </div>
               <div
-                className="w-2/5 h-5/6 mx-2 p-3 flex flex-col justify-between"
+                className="w-2/5 h-5/6 mx-4 p-3 flex flex-col justify-between"
                 style={{ backgroundColor: "#10DD3D" }}
               >
                 {" "}
@@ -77,10 +118,10 @@ export default function MainPageLg() {
                   <UnderLine className="w-2/3" />
                 </div>
                 <Second className="text-ellipsis">
-                  8월 동안 가장 인기가 높았던
+                  8월 동안 가장 조회수가 높았던
                 </Second>
                 <Second className="text-ellipsis">
-                  인기 테니스장을 확인하세요.
+                  인기 테니스장을 모아봤어요.
                 </Second>
                 <Logo width="40" height="40" />
                 <div className="flex justify-end">
@@ -90,7 +131,7 @@ export default function MainPageLg() {
             </div>
             <div className=" flex h-1/2">
               <div
-                className="w-2/5 h-full mx-2 p-3 flex flex-col justify-between"
+                className="w-2/5 h-full mr-2 p-3 flex flex-col justify-between"
                 style={{ border: "2px #10DD3D solid" }}
               >
                 <div>
@@ -99,32 +140,40 @@ export default function MainPageLg() {
                 </div>
 
                 <Second className="text-ellipsis">
-                  8월 동안 가장 인기가 높았던
+                  8월 동안 가장 조회수가 높았던
                 </Second>
                 <Second className="text-ellipsis">
-                  인기 골프장을 확인하세요.
+                  인기 골프장을 모아봤어요.
                 </Second>
                 <Logo width="40" height="40" />
                 <div className="flex justify-end">
                   <Button inputColor="#10dd3d">보러가기</Button>
                 </div>
               </div>
-              <div className="w-3/5 h-full mx-2 p-3 border-black border-2">
-                <First>명경기 유튜브</First>
+              <div className="w-3/5 h-full mx-4 p-3 border-black border-2">
+                <First></First>
               </div>
             </div>
           </div>
-          <div
-            className="w-4/12 h-full p-3 flex flex-col"
-            style={{ border: "2px #10DD3D solid" }}
-          >
-            <div>
-              <First>날씨</First>
-              <UnderLine className="w-1/6" />
-            </div>
+          <div className="w-4/12 flex flex-col">
+            <div
+              className="w-full h-3/4 p-3 mb-5 flex flex-col"
+              style={{ border: "2px #10DD3D solid" }}
+            >
+              <div>
+                <First>날씨</First>
+                <UnderLine className="w-1/6" />
+              </div>
 
-            <Second>8월 20일</Second>
-            <Second>맑음 / 비올 확률 : 20%</Second>
+              <Second>{currentDate}</Second>
+              <Second>기온 : {currentTemperature}℃</Second>
+            </div>
+            <div
+              className="w-full h-1/4 p-3"
+              style={{ backgroundColor: "#10DD3D" }}
+            >
+              <First>새 컨텐츠</First>
+            </div>
           </div>
         </div>
       </div>

@@ -5,6 +5,7 @@ import { menuIsOpenState } from "../atoms/atom-menu";
 import { useNavigate } from "react-router-dom";
 import TopPart_NoDetail from "../components/TopPart_NoDetail";
 import MainPageLg from "../components/MainPage/MainPageLg";
+import MainPageSm from "../components/MainPage/MainPageSm";
 
 export default function Home() {
   const isOpen = useRecoilValue(menuIsOpenState);
@@ -19,7 +20,7 @@ export default function Home() {
         <Container>
           <TopPart_NoDetail />
         </Container>
-        {width > 768 ? <MainPageLg /> : <div>작은화면</div>}
+        {width > 1024 ? <MainPageLg /> : <MainPageSm />}
       </div>
     </div>
   );
