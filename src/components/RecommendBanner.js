@@ -1,7 +1,7 @@
 import React from "react";
 import { Col } from "react-bootstrap";
 
-export default function EachBanner() {
+export default function RecommendBanner() {
   return (
     <Col lg={6} sm={12}>
       <div
@@ -25,7 +25,7 @@ export default function EachBanner() {
         </h3>
         <img
           src="https://file.mk.co.kr/meet/neds/2022/07/image_readtop_2022_628655_16580478795109178.jpg"
-          style={{ filter: "brightness(83%)" }}
+          style={{ filter: "brightness(83%)", width: "100%" }}
         />
         <h6
           style={{
