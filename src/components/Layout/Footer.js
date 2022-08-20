@@ -1,7 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import { Container } from "react-bootstrap";
 
 export default function Footer() {
+  const [width, setWidth] = useState(window.screen.width);
+  window.addEventListener("resize", () => {
+    setWidth(window.screen.width);
+  });
+
+  const marginTop = width < 1024 ? "250px" : "100px";
+
   return (
     <Container
       fluid
@@ -9,7 +16,7 @@ export default function Footer() {
         backgroundColor: "#000000",
         color: "#bdc3c7",
         padding: "30px",
-        marginTop: "100px",
+        marginTop: marginTop,
       }}
     >
       <div>
