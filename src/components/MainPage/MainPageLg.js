@@ -24,7 +24,7 @@ export default function MainPageLg() {
     font-style: normal;
     font-weight: 600;
     font-size: 14px;
-    line-height: 10px;
+    line-height: 17.38px;
   `;
   const Button = styled.button`
     box-sizing: border-box;
@@ -100,7 +100,7 @@ export default function MainPageLg() {
       case "Clouds":
         return (
           <div style={{ display: "flex", justifyContent: "flex-start" }}>
-            <FontAwesomeIcon size="8x" icon={faCloud} />
+            <FontAwesomeIcon size="4x" icon={faCloud} />
           </div>
         );
       default:
@@ -138,7 +138,7 @@ export default function MainPageLg() {
         <div className=" flex justify-between w-full h-full">
           <div className="mb-1 flex flex-col w-8/12 h-full mx-2 ">
             <div className="flex justify-center  h-1/2">
-              <div className="w-3/5 h-5/6 mr-2 p-3 border-black border-2 flex flex-col justify-between">
+              <div className="w-3/5 h-5/6 mr-2 p-4 border-black border-2 flex flex-col justify-between">
                 <div>
                   <First>예약 정보</First>
                   <UnderLine className="w-1/5" />
@@ -151,7 +151,7 @@ export default function MainPageLg() {
                       className="w-full"
                     />
                   </ImageCover>
-                  <div className="flex flex-col w-1/2">
+                  <div className="flex flex-col w-2/3 mx-3">
                     <div
                       style={{
                         fontSize: "14px",
@@ -195,8 +195,9 @@ export default function MainPageLg() {
                 </div>
                 <Second className="text-ellipsis">
                   8월 동안 가장 조회수가 높았던
-                </Second>
-                <Second className="text-ellipsis">
+                  <br />
+                  {/* </Second>
+                <Second className="text-ellipsis"> */}
                   인기 테니스장을 모아봤어요.
                 </Second>
                 <Logo width="40" height="40" />
@@ -278,7 +279,7 @@ export default function MainPageLg() {
               <Logo width="40" height="80" />
               {switchToIcon(weatherState)}
               {/* Thunderstorm	Drizzle Rain Snow Clear Clouds */}
-              <First style={{ whiteSpace: "pre", marginTop: "35px" }}>
+              <First style={{ marginTop: "35px" }}>
                 {weatherState === "Clear"
                   ? "야외 운동하기 좋은 날씨입니다.\n더위에 조심하세요!"
                   : "기상 상태가 좋지 않아요. 실내에서 운동해보는 건 어때요?"}

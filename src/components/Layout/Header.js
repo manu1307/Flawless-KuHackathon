@@ -90,6 +90,7 @@ export default function Header() {
                     <Nav.Link
                       className="text-center opacity-70 hover:opacity-100"
                       href="#action2"
+                      onClick={() => alert("준비 중입니다!")}
                     >
                       <span className="px-3 py-1 text-center opacity-70 hover:opacity-100 hover:border-b border-black">
                         공지사항

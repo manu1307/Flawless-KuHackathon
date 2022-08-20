@@ -6,7 +6,6 @@ import CircleContainer from "./CircleContainer";
 import SearchInputContainer from "./SearchInputContainer";
 
 export default function TopPart({ sprotsType }) {
-  console.log(sprotsType);
   return (
     <>
       <Row>
@@ -30,7 +29,7 @@ export default function TopPart({ sprotsType }) {
               />
               <FormSelect
                 data={{
-                  label: "money",
+                  label: "price",
                   labelKor: "금액 분포",
                   option: ["3만원 미만", "3~5만원", "5만원 이상"],
                   width: sprotsType === "tennis" ? "30%" : "33%",
@@ -47,7 +46,7 @@ export default function TopPart({ sprotsType }) {
               {sprotsType === "tennis" ? (
                 <FormSelect
                   data={{
-                    label: "type",
+                    label: "tennis_type",
                     labelKor: "테니스 구장 종류",
                     option: ["하드", "잔디", "클레이"],
                     width: "30%",
