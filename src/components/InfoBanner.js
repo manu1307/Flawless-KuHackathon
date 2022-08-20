@@ -23,7 +23,28 @@ export default function InfoBanner() {
             <SmallInfo>시간 정보</SmallInfo>
             <SmallInfo>가격 정보</SmallInfo>
           </LeftInfo>
-          <RightInfo>⭐️⭐️⭐️⭐️ /5</RightInfo>
+          <RightInfo>
+            <img
+              style={{ width: "14px", height: "14px" }}
+              src="/img/Star.png"
+            />
+            <img
+              style={{ width: "14px", height: "14px" }}
+              src="/img/Star.png"
+            />
+            <img
+              style={{ width: "14px", height: "14px" }}
+              src="/img/Star.png"
+            />
+            <img
+              style={{ width: "14px", height: "14px" }}
+              src="/img/Star.png"
+            />
+            <img
+              style={{ width: "14px", height: "14px" }}
+              src="/img/NoStar.png"
+            />
+          </RightInfo>
         </BottomDescription>
       </Container>
     </Col>
@@ -38,6 +59,7 @@ const BottomDescription = styled.div`
 const LeftInfo = styled.div``;
 const RightInfo = styled.div`
   font-size: 14px;
+  display: flex;
 `;
 const Title = styled.div`
   font-size: 20px;

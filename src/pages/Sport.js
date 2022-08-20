@@ -19,6 +19,10 @@ export default function Sport() {
           <InfoBanner />
           <InfoBanner />
           <InfoBanner />
+          <InfoBanner />
+          <InfoBanner />
+          <InfoBanner />
+          <InfoBanner />
         </Row>
       </BannerContainer>
     </Container>
