@@ -8,6 +8,11 @@ import { ReactComponent as ProjectLogo } from "../../assets/projectLogo.svg";
 import { useState } from "react";
 
 export default function Header() {
+  const [width, setWidth] = useState(window.screen.width);
+  window.addEventListener("resize", () => {
+    setWidth(window.screen.width);
+  });
+
   return (
     <>
       {[false].map((expand) => (
@@ -16,11 +21,26 @@ export default function Header() {
             <div className="w-screen flex justify-between py-3">
               <Navbar.Brand
                 href="/"
-                className="text-center w-1 text-white lg:w-full"
+                className="text-center text-white lg:w-full"
               >
                 <div className="flex">
-                  <Logo width={30} height={30} fill="white" className="mx-2" />
-                  어디구장
+                  {width > 1024 ? (
+                    <div className="flex">
+                      <Logo
+                        width={30}
+                        height={30}
+                        fill="white"
+                        className="mx-2"
+                      />
+                      <ProjectLogo width={120} height={30} fill="white" />
+                    </div>
+                  ) : (
+                    <img
+                      src="../img/LogoSet.png"
+                      alt="Logo Set"
+                      style={{ width: "120px", height: "40px" }}
+                    ></img>
+                  )}
                 </div>
               </Navbar.Brand>
               <Navbar.Toggle

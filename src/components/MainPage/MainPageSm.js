@@ -61,6 +61,8 @@ export default function MainPageSm() {
     fetchWeatherData();
   }, []);
 
+
+
   return (
     <div className="container flex justify-center mx-auto ">
       <div className="flex flex-col w-5/6 h-screen">
