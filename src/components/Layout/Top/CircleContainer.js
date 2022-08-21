@@ -18,6 +18,7 @@ export default function CircleContainer() {
           navigate("/sport?type=golf");
           window.location.reload();
         }}
+        style={{ cursor: "pointer" }}
       >
         <Circle>
           <img style={{ width: "40%" }} src="/img/golf.png" />
@@ -29,6 +30,7 @@ export default function CircleContainer() {
           navigate("/sport?type=tennis");
           window.location.reload();
         }}
+        style={{ cursor: "pointer" }}
       >
         <Circle>
           <img style={{ width: "50%" }} src="/img/tennis.png" />

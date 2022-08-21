@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Row, Form, Col } from "react-bootstrap";
 import styled from "styled-components";
+
 import FormSelect from "../../FormSelect";
 import CircleContainer from "./CircleContainer";
 import SearchInputContainer from "./SearchInputContainer";
 
-export default function TopPart({ sprotsType }) {
+export default function TopPart({ sportsType }) {
+
+
   return (
     <>
       <Row>
@@ -24,7 +27,7 @@ export default function TopPart({ sprotsType }) {
                   label: "position",
                   labelKor: "장소",
                   option: ["실내", "실외"],
-                  width: sprotsType === "tennis" ? "20%" : "33%",
+                  width: sportsType === "tennis" ? "20%" : "33%",
                 }}
               />
               <FormSelect
@@ -32,7 +35,7 @@ export default function TopPart({ sprotsType }) {
                   label: "price",
                   labelKor: "금액 분포",
                   option: ["3만원 미만", "3~5만원", "5만원 이상"],
-                  width: sprotsType === "tennis" ? "30%" : "33%",
+                  width: sportsType === "tennis" ? "30%" : "33%",
                 }}
               />
               <FormSelect
@@ -40,10 +43,10 @@ export default function TopPart({ sprotsType }) {
                   label: "region",
                   labelKor: "지역",
                   option: ["서울", "경기", "그 외"],
-                  width: sprotsType === "tennis" ? "20%" : "33%",
+                  width: sportsType === "tennis" ? "20%" : "33%",
                 }}
               />
-              {sprotsType === "tennis" ? (
+              {sportsType === "tennis" ? (
                 <FormSelect
                   data={{
                     label: "tennis_type",

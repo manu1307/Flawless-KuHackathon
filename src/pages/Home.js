@@ -1,14 +1,12 @@
 import React, { useState } from "react";
 import { Container } from "react-bootstrap";
 import { useRecoilValue } from "recoil";
-import { menuIsOpenState } from "../atoms/atom-menu";
 import { useNavigate } from "react-router-dom";
 import MainPageLg from "../components/MainPage/MainPageLg";
 import TopPart_NoDetail from "../components/Layout/Top/TopPart_NoDetail";
 import MainPageSm from "../components/MainPage/MainPageSm";
 
 export default function Home() {
-  const isOpen = useRecoilValue(menuIsOpenState);
   const navigate = useNavigate();
   const [width, setWidth] = useState(window.screen.width);
   window.addEventListener("resize", () => {
