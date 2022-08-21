@@ -55,7 +55,12 @@ export default function ApplyInfo() {
           <div className="flex justify-between">
             <div className="w-full h-full">
               <InfoTab className="w-1/2">
-                <Title>어떤 테니스장</Title>
+                <Title
+                  style={{ position: "relative", top: "20px" }}
+                  className="mb-8"
+                >
+                  어떤 테니스장
+                </Title>
                 <DetailInfoBox
                   data={[
                     { label: "예약자 이름", value: "심하민" },
