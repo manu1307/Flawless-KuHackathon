@@ -10,44 +10,7 @@ import { faSun } from "@fortawesome/free-regular-svg-icons";
 import { faCloudShowersHeavy } from "@fortawesome/free-solid-svg-icons";
 // Thunderstorm	Drizzle Rain Snow Clear Clouds
 export default function MainPageLg() {
-  const First = styled.p`
-    font-family: Noto Sans CJK KR;
-    font-size: 20px;
-    font-weight: 700;
-    line-height: 20px;
-    letter-spacing: 0em;
-    text-align: left;
-    margin: 0;
-  `;
-  const Second = styled.p`
-    font-family: "Noto Sans CJK KR";
-    font-style: normal;
-    font-weight: 600;
-    font-size: 14px;
-    line-height: 17.38px;
-  `;
-  const Button = styled.button`
-    box-sizing: border-box;
-    width: 75px;
-    height: 25px;
-    font-size: 13px;
-    font-weight: 600;
-    font-family: "Noto Sans CJK KR";
-    background: ${(props) => props.inputColor};
-    border: 1.8px solid #000000;
-  `;
-  const UnderLine = styled.div`
-    height: 3px;
-    background: black;
-    margin-top: 5px;
-    margin-bottom: 15px;
-  `;
-  const ImageCover = styled.div`
-    overflow: hidden;
-    height: 1350px;
-    width: 135px;
-  `;
-
+  const navigate = useNavigate();
   const [currentTemperature, setCurrentTemperature] = useState();
   const [weatherState, setWeatherState] = useState("Clear");
   const [currentDate, setCurrentDate] = useState("");
@@ -191,12 +154,14 @@ export default function MainPageLg() {
                 className="w-2/5 h-5/6 mx-4 p-3 flex flex-col justify-between"
                 style={{ backgroundColor: "#10DD3D" }}
               >
-                {" "}
                 <div>
                   <First>최근 인기 테니스장</First>
-                  <UnderLine className="w-2/3" />
+                  <UnderLine className="w-2/3" style={{ marginBottom: 0 }} />
                 </div>
-                <Second className="text-ellipsis">
+                <Second
+                  className="text-ellipsis"
+                  style={{ lineHeight: "20px" }}
+                >
                   8월 동안 가장 조회수가 높았던
                   <br />
                   {/* </Second>
@@ -207,7 +172,7 @@ export default function MainPageLg() {
                 <div className="flex justify-end">
                   <Button
                     inputColor="#FFFFFF"
-                    style={{ position: "relative", top: "-18px" }}
+                    style={{ position: "relative", top: "-8px" }}
                   >
                     보러가기
                   </Button>
@@ -221,13 +186,19 @@ export default function MainPageLg() {
               >
                 <div>
                   <First>최근 인기 골프장</First>
-                  <UnderLine className="w-2/3" />
+                  <UnderLine
+                    className="w-2/3"
+                    style={{ marginBottom: "-30px" }}
+                  />
                 </div>
-
-                <Second className="text-ellipsis">
+                <Second
+                  className="text-ellipsis"
+                  style={{ lineHeight: "20px" }}
+                >
                   8월 동안 가장 조회수가 높았던
-                </Second>
-                <Second className="text-ellipsis">
+                  <br />
+                  {/* </Second>
+                <Second className="text-ellipsis"> */}
                   인기 골프장을 모아봤어요.
                 </Second>
                 <Logo width="40" height="40" />
@@ -282,11 +253,19 @@ export default function MainPageLg() {
               <Logo width="40" height="80" />
               {switchToIcon(weatherState)}
               {/* Thunderstorm	Drizzle Rain Snow Clear Clouds */}
-              <First style={{ marginTop: "35px" }}>
-                {weatherState === "Clear"
-                  ? "야외 운동하기 좋은 날씨입니다.\n더위에 조심하세요!"
-                  : "기상 상태가 좋지 않아요.\n실내에서 운동해보는 건 어때요?"}
-              </First>
+              {weatherState === "Clear" ? (
+                <First style={{ marginTop: "35px", lineHeight: "25px" }}>
+                  야외 운동하기 좋은 날씨입니다.
+                  <br />
+                  더위에 조심하세요!
+                </First>
+              ) : (
+                <First style={{ marginTop: "35px", lineHeight: "25px" }}>
+                  기상 상태가 좋지 않아요.
+                  <br />
+                  실내에서 운동해보는 건 어때요?
+                </First>
+              )}
             </div>
             <div
               className="w-full h-1/4 p-3"
@@ -295,12 +274,15 @@ export default function MainPageLg() {
               <div className="flex flex-col">
                 <div>
                   <First>우리 지역 구장 찾기</First>
-                  <UnderLine className="w-3/6" />
+                  <UnderLine
+                    className="w-3/6"
+                    style={{ marginBottom: "40px" }}
+                  />
                 </div>
-                <div className="flex justify-end">
+                <div className="flex justify-end align-end ">
                   <Button
                     inputColor="white"
-                    style={{ position: "relative", top: "0px" }}
+                    // style={{ position: "relative", bottom: "0px" }}
                   >
                     보러가기
                   </Button>
@@ -332,8 +314,8 @@ const Second = styled.p`
 `;
 const Button = styled.button`
   box-sizing: border-box;
-  width: 75px;
-  height: 25px;
+  width: 100px;
+  height: 33px;
   font-size: 13px;
   font-weight: 600;
   font-family: "Noto Sans CJK KR";

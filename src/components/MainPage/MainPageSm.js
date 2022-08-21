@@ -147,11 +147,11 @@ export default function MainPageSm() {
           <div
             style={{
               position: "absolute",
-              top: 20,
+              top: 40,
               right: 35,
             }}
           >
-            <FontAwesomeIcon size="6x" icon={faCloud} />
+            <FontAwesomeIcon size="3x" icon={faCloud} />
           </div>
         );
       default:
