@@ -8,7 +8,7 @@ export default function CircleContainer() {
   return (
     <AllCircleContainer fulid>
       <CircleBox onClick={() => navigate("/")}>
-        <Circle>
+        <Circle style={{ cursor: "pointer" }}>
           <img style={{ height: "60%" }} src="/img/logo.png" />
         </Circle>
         <Text>어디구장</Text>
@@ -19,7 +19,7 @@ export default function CircleContainer() {
           window.location.reload();
         }}
       >
-        <Circle>
+        <Circle style={{ cursor: "pointer" }}>
           <img style={{ width: "40%" }} src="/img/golf.png" />
         </Circle>
         <Text>골프</Text>
@@ -30,7 +30,7 @@ export default function CircleContainer() {
           window.location.reload();
         }}
       >
-        <Circle>
+        <Circle style={{ cursor: "pointer" }}>
           <img style={{ width: "50%" }} src="/img/tennis.png" />
         </Circle>
         <Text>테니스</Text>

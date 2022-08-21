@@ -9,3 +9,12 @@ export const getPlaces = async () => {
   });
   return await res.json();
 };
+export const getPlace = async (id) => {
+  const res = await fetch(`${BASE_URL}/places/${id}`, {
+    method: "GET",
+    headers: {
+      "Content-type": "application/json",
+    },
+  });
+  return await res.json();
+};

@@ -25,7 +25,7 @@ export default function InfoBanner({ data }) {
       md={6}
       onClick={() => {
         window.scroll(0, 0);
-        navigate(`/reservation/1`);
+        navigate(`/reservation/${data.placeIdx}`);
       }}
     >
       <Container

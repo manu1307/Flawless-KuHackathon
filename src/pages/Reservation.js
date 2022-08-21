@@ -1,13 +1,24 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
 import { useNavigate, useParams } from "react-router-dom";
 import styled from "styled-components";
+import { getPlace } from "../api";
 import TopPart_NoDetail from "../components/Layout/Top/TopPart_NoDetail";
 import InfoTabSmall from "../components/Mobile/InfoTabSmall";
 import DetailInfoBox from "../components/Reservation/DetailInfo";
 
 export default function Reservation() {
   const { id } = useParams();
+  const [data, setData] = useState({});
+  useEffect(() => {
+    if (id) {
+      getPlace(id).then((res) => {
+        if (res.isSuccess) {
+          setData(res.result);
+        }
+      });
+    }
+  }, [id]);
   const navigate = useNavigate();
   const [tab, setTab] = useState("info");
   const width = window.screen.width;
@@ -28,7 +39,7 @@ export default function Reservation() {
         <RightContainer>
           <Tabs>
             <Tab onClick={() => setTab("info")} selected={tab === "info"}>
-              테니스장 정보
+              {data.type === "golf" ? "골프장" : "테니스장"} 정보
             </Tab>
             <Tab onClick={() => setTab("review")} selected={tab === "review"}>
               리뷰
@@ -36,13 +47,21 @@ export default function Reservation() {
           </Tabs>
           <InfoContainer>
             <div>
-              <Title>어떤 테니스장</Title>
+              <Title>{data.placeName}</Title>
               <DetailInfoBox
                 data={[
-                  { label: "테니스장 종류", value: "잔디" },
-                  { label: "장소", value: "실외" },
-                  { label: "금액", value: "시간당 30,000원" },
-                  { label: "특이사항", value: "정비로 인해 사용불가" },
+                  {
+                    label: "테니스장 종류",
+                    value: data.tennis_type ? data.tennis_type : "",
+                  },
+                  { label: "장소", value: data.position ? data.position : "" },
+                  {
+                    label: "금액",
+                    value: `시간당 ${
+                      data.price && data.price.toLocaleString("ko")
+                    }원`,
+                  },
+                  { label: "특이사항", value: data.etc ? data.etc : "" },
                 ]}
               />
             </div>
