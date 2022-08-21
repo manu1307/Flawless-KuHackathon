@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import { Container } from "react-bootstrap";
 import { useNavigate, useParams } from "react-router-dom";
+import { useRecoilState } from "recoil";
 import styled from "styled-components";
+import { selected } from "../atoms/atom-sort";
 import InputContainerBox from "../components/Apply/InputContainerBox";
 import TopPart_NoDetail from "../components/Layout/Top/TopPart_NoDetail";
 import InfoTabSmall from "../components/Mobile/InfoTabSmall";
@@ -11,6 +13,8 @@ export default function Apply() {
   const { id } = useParams();
   const navigate = useNavigate();
   const [success, setSuccess] = useState(false);
+  const [recoilData, setRecoilData] = useRecoilState(selected);
+  console.log(recoilData);
   const width = window.screen.width;
 
   const onSubmit = () => {
@@ -39,10 +43,26 @@ export default function Apply() {
                 { label: "예약 시간", value: "15:00~17:00" },
               ]
             : [
-                { label: "테니스장 종류", value: "잔디" },
-                { label: "장소", value: "실외" },
-                { label: "금액", value: "시간당 30,000원" },
-                { label: "특이사항", value: "정비로 인해 사용불가" },
+                {
+                  label: "테니스장 종류",
+                  value: recoilData.tennis_type
+                    ? recoilData.tennis_type
+                    : "해당사항 없음",
+                },
+                {
+                  label: "장소",
+                  value: recoilData.position ? recoilData.position : "",
+                },
+                {
+                  label: "금액",
+                  value: `시간당 ${
+                    recoilData.price && recoilData.price.toLocaleString("ko")
+                  }원`,
+                },
+                {
+                  label: "특이사항",
+                  value: recoilData.etc ? recoilData.etc : "",
+                },
               ]
         }
       />
@@ -103,7 +123,7 @@ export default function Apply() {
           </TopDiv>
           <div style={{ display: "flex" }}>
             <InfoTab>
-              <Title>어떤 테니스장</Title>
+              <Title>{recoilData.placeName}</Title>
               <DetailInfoBox
                 data={
                   success
@@ -114,10 +134,27 @@ export default function Apply() {
                         { label: "예약 시간", value: "15:00~17:00" },
                       ]
                     : [
-                        { label: "테니스장 종류", value: "잔디" },
-                        { label: "장소", value: "실외" },
-                        { label: "금액", value: "시간당 30,000원" },
-                        { label: "특이사항", value: "정비로 인해 사용불가" },
+                        {
+                          label: "테니스장 종류",
+                          value: recoilData.tennis_type
+                            ? recoilData.tennis_type
+                            : "해당사항 없음",
+                        },
+                        {
+                          label: "장소",
+                          value: recoilData.position ? recoilData.position : "",
+                        },
+                        {
+                          label: "금액",
+                          value: `시간당 ${
+                            recoilData.price &&
+                            recoilData.price.toLocaleString("ko")
+                          }원`,
+                        },
+                        {
+                          label: "특이사항",
+                          value: recoilData.etc ? recoilData.etc : "",
+                        },
                       ]
                 }
               />

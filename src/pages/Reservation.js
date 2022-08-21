@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
 import { useNavigate, useParams } from "react-router-dom";
+import { useRecoilState } from "recoil";
 import styled from "styled-components";
 import { getPlace } from "../api";
+import { selected } from "../atoms/atom-sort";
 import TopPart_NoDetail from "../components/Layout/Top/TopPart_NoDetail";
 import InfoTabSmall from "../components/Mobile/InfoTabSmall";
 import DetailInfoBox from "../components/Reservation/DetailInfo";
@@ -10,11 +12,13 @@ import DetailInfoBox from "../components/Reservation/DetailInfo";
 export default function Reservation() {
   const { id } = useParams();
   const [data, setData] = useState({});
+  const [recoilData, setRecoilData] = useRecoilState(selected);
   useEffect(() => {
     if (id) {
       getPlace(id).then((res) => {
         if (res.isSuccess) {
           setData(res.result);
+          setRecoilData(res.result);
         }
       });
     }
@@ -52,7 +56,9 @@ export default function Reservation() {
                 data={[
                   {
                     label: "테니스장 종류",
-                    value: data.tennis_type ? data.tennis_type : "",
+                    value: data.tennis_type
+                      ? data.tennis_type
+                      : "해당사항 없음",
                   },
                   { label: "장소", value: data.position ? data.position : "" },
                   {
@@ -69,7 +75,7 @@ export default function Reservation() {
               <Btn
                 onClick={() => {
                   window.scroll(0, 0);
-                  navigate(`/apply/1`);
+                  navigate(`/apply/${data.placeIdx ? data.placeIdx : 5}`);
                 }}
               >
                 예약하기
@@ -83,10 +89,26 @@ export default function Reservation() {
     <>
       <InfoTabSmall
         data={[
-          { label: "테니스장 종류", value: "잔디" },
-          { label: "장소", value: "실외" },
-          { label: "금액", value: "시간당 30,000원" },
-          { label: "특이사항", value: "정비로 인해 사용불가" },
+          {
+            label: "테니스장 종류",
+            value: recoilData.tennis_type
+              ? recoilData.tennis_type
+              : "해당사항 없음",
+          },
+          {
+            label: "장소",
+            value: recoilData.position ? recoilData.position : "",
+          },
+          {
+            label: "금액",
+            value: `시간당 ${
+              recoilData.price && recoilData.price.toLocaleString("ko")
+            }원`,
+          },
+          {
+            label: "특이사항",
+            value: recoilData.etc ? recoilData.etc : "",
+          },
         ]}
       />
       <div

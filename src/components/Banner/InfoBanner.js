@@ -30,7 +30,12 @@ export default function InfoBanner({ data }) {
     >
       <Container
         fluid
-        style={{ border: "1px solid black", padding: 0, marginBottom: "24px" }}
+        style={{
+          border: "1px solid black",
+          padding: 0,
+          marginBottom: "24px",
+          cursor: "pointer",
+        }}
       >
         <TopImage>
           <img
