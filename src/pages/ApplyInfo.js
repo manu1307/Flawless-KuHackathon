@@ -55,6 +55,7 @@ export default function ApplyInfo() {
           <div className="flex justify-between">
             <div className="w-full h-full">
               <InfoTab className="w-1/2">
+                <div style={{ height: "20px" }} />
                 <Title>어떤 테니스장</Title>
                 <DetailInfoBox
                   data={[
@@ -94,7 +95,7 @@ export default function ApplyInfo() {
                     backgroundColor: "#10dd3d",
                     width: "100%",
                     position: "relative",
-                    top: "260%",
+                    top: "213%",
                   }}
                   className="py-2"
                 >

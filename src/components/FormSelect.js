@@ -1,8 +1,17 @@
 import React from "react";
 import { Form } from "react-bootstrap";
+import { useRecoilState } from "recoil";
 import styled from "styled-components";
+import { option } from "../atoms/atom-sort";
 
 export default function FormSelect({ data }) {
+  const [optionState, setOptionState] = useRecoilState(option);
+  const onChange = (e) => {
+    console.log(data.label, e.target.value);
+    let new_option = { ...optionState };
+    new_option[data.label] = e.target.value;
+    setOptionState(new_option);
+  };
   return (
     <Form.Select
       aria-label={data.label}
@@ -13,10 +22,11 @@ export default function FormSelect({ data }) {
         color: "#10DD3D",
         width: data.width,
       }}
+      onChange={onChange}
     >
       <DefaultOption>{data.labelKor}</DefaultOption>
       {data.option.map((option) => (
-        <option>{option}</option>
+        <option value={option.value}>{option}</option>
       ))}
     </Form.Select>
   );

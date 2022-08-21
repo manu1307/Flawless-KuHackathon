@@ -1,10 +1,24 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Col, Container } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
-export default function InfoBanner() {
+export default function InfoBanner({ data }) {
   const navigate = useNavigate();
+  const printRates = () => {
+    const result = [];
+    for (let i = 0; i < data.rate; i++) {
+      result.push(
+        <img style={{ width: "14px", height: "14px" }} src="/img/Star.png" />
+      );
+    }
+    for (let i = 0; i < 5 - data.rate; i++) {
+      result.push(
+        <img style={{ width: "14px", height: "14px" }} src="/img/NoStar.png" />
+      );
+    }
+    return result;
+  };
   return (
     <Col
       lg={4}
@@ -26,32 +40,14 @@ export default function InfoBanner() {
         </TopImage>
         <BottomDescription>
           <LeftInfo>
-            <Title>어쩌구 테니스장</Title>
-            <SmallInfo>시간 정보</SmallInfo>
-            <SmallInfo>가격 정보</SmallInfo>
+            <Title>{data.placeName}</Title>
+            <SmallInfo>운영 시간: {data.time}</SmallInfo>
+            <SmallInfo>
+              가격 정보: {data.price.toLocaleString("ko")}원/1시간
+            </SmallInfo>
+            <SmallInfo>지역: {data.region}</SmallInfo>
           </LeftInfo>
-          <RightInfo>
-            <img
-              style={{ width: "14px", height: "14px" }}
-              src="/img/Star.png"
-            />
-            <img
-              style={{ width: "14px", height: "14px" }}
-              src="/img/Star.png"
-            />
-            <img
-              style={{ width: "14px", height: "14px" }}
-              src="/img/Star.png"
-            />
-            <img
-              style={{ width: "14px", height: "14px" }}
-              src="/img/Star.png"
-            />
-            <img
-              style={{ width: "14px", height: "14px" }}
-              src="/img/NoStar.png"
-            />
-          </RightInfo>
+          <RightInfo>{printRates()}</RightInfo>
         </BottomDescription>
       </Container>
     </Col>
