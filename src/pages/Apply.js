@@ -37,7 +37,7 @@ export default function Apply() {
         data={
           success
             ? [
-                { label: "예약자 이름", value: "심하민" },
+                { label: "예약자 이름", value: "김구장" },
                 { label: "전화번호", value: "010-0000-0000" },
                 { label: "동행인 수", value: "3명" },
                 { label: "예약 시간", value: "15:00~17:00" },
@@ -128,7 +128,7 @@ export default function Apply() {
                 data={
                   success
                     ? [
-                        { label: "예약자 이름", value: "심하민" },
+                        { label: "예약자 이름", value: "김구장" },
                         { label: "전화번호", value: "010-0000-0000" },
                         { label: "동행인 수", value: "3명" },
                         { label: "예약 시간", value: "15:00~17:00" },

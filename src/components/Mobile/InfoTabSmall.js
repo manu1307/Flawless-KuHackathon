@@ -20,7 +20,7 @@ export default function InfoTabSmall({ data }) {
         />
       </div>
       <div style={{ marginLeft: "10px" }}>
-        <Title>어떤 테니스장</Title>
+        <Title>영등포 테니스장</Title>
         <DetailInfoBox data={data} />
       </div>
     </div>

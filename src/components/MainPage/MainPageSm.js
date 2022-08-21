@@ -188,7 +188,11 @@ export default function MainPageSm() {
               <Second>8월동안 가장 조회수가 높았던</Second>
               <div className="flex justify-between">
                 <Second>인기 테니스장을 모아봤어요.</Second>
-                <Button inputColor="#ffffff" borderInput="1px solid #000000">
+                <Button
+                  inputColor="#ffffff"
+                  borderInput="1px solid #000000"
+                  onClick={() => navigate("/sport?type=tennis")}
+                >
                   보러 가기
                 </Button>
               </div>
@@ -212,6 +216,7 @@ export default function MainPageSm() {
                   inputColor="#10dd3d"
                   borderColor="1px solid #ffffff"
                   className="text-white"
+                  onClick={() => navigate("/sport?type=tennis")}
                 >
                   보러 가기
                 </Button>
@@ -232,7 +237,7 @@ export default function MainPageSm() {
                   marginBottom: "3px",
                 }}
               >
-                어쩌구저쩌구테니스장
+                영등포테니스장
               </First>
               <Second className="mt-1">
                 예약날짜 {new Date().toLocaleDateString()}
@@ -295,6 +300,7 @@ export default function MainPageSm() {
                     inputColor="white"
                     borderInput="1px solid black"
                     style={{ position: "relative", top: "30px" }}
+                    onClick={() => alert("준비 중입니다!")}
                   >
                     보러 가기
                   </Button>

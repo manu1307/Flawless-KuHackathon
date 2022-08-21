@@ -173,6 +173,7 @@ export default function MainPageLg() {
                   <Button
                     inputColor="#FFFFFF"
                     style={{ position: "relative", top: "-8px" }}
+                    onClick={() => navigate("/sport?type=tennis")}
                   >
                     보러가기
                   </Button>
@@ -206,6 +207,7 @@ export default function MainPageLg() {
                   <Button
                     inputColor="#10dd3d"
                     style={{ position: "relative", top: "-15px" }}
+                    onClick={() => navigate("/sport?type=golf")}
                   >
                     보러가기
                   </Button>
@@ -283,6 +285,7 @@ export default function MainPageLg() {
                   <Button
                     inputColor="white"
                     // style={{ position: "relative", bottom: "0px" }}
+                    onClick={() => alert("준비 중입니다!")}
                   >
                     보러가기
                   </Button>

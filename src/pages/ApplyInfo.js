@@ -24,7 +24,7 @@ export default function ApplyInfo() {
     <>
       <InfoTabSmall
         data={[
-          { label: "예약자 이름", value: "심하민" },
+          { label: "예약자 이름", value: "김구장" },
           { label: "전화번호", value: "010-0000-0000" },
           { label: "동행인 수", value: "3명" },
           { label: "예약 시간", value: "15:00~17:00" },
@@ -56,10 +56,10 @@ export default function ApplyInfo() {
             <div className="w-full h-full">
               <InfoTab className="w-1/2">
                 <div style={{ height: "20px" }} />
-                <Title>어떤 테니스장</Title>
+                <Title>영등포 테니스장</Title>
                 <DetailInfoBox
                   data={[
-                    { label: "예약자 이름", value: "심하민" },
+                    { label: "예약자 이름", value: "김구장" },
                     { label: "전화번호", value: "010-0000-0000" },
                     { label: "동행인 수", value: "3명" },
                     { label: "예약 시간", value: "15:00~17:00" },
